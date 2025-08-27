@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Best Car Rental in Ahmedabad | Radhe Rentals | Affordable & Reliable</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+      background-color: #fff;
+      color: #222;
+    }
+    body {
+      line-height: 1.5;
+      font-size: 16px;
+      background-color: #fff;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      font-weight: 700;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Container for responsive content */
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --- HEADER & NAV --- */
+    header {
+      position: relative;
+      background: url("myimage/sport-car-with-black-white-autotuning-driving-forest.jpg") center/cover no-repeat;
+      color: #fff;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0 5% 48px;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+      border-radius: 0 0 35% 35% / 120px 120px 0 0;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0 0 0;
+      z-index: 10;
+      position: relative;
+      font-weight: 700;
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      z-index: 10;
+    }
+    nav .logo svg {
+      height: 26px;
+      width: 26px;
+      fill: #ff6b13;
+    }
+    nav .logo span {
+      color: #fff;
+      letter-spacing: 2px;
+    }
+
+    /* Mobile Menu Button */
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 28px;
+      z-index: 100;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      color: #eee;
+      padding: 4px 0;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ff6b13;
+    }
+    nav ul li .dropdown {
+      display: none;
+      position: absolute;
+      top: 32px;
+      left: 0;
+      background: #222;
+      border-radius: 6px;
+      min-width: 160px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.4);
+      z-index: 15;
+      font-weight: 500;
+      font-size: 13px;
+    }
+    nav ul li:hover .dropdown {
+      display: block;
+    }
+    nav ul li .dropdown a {
+      display: block;
+      padding: 8px 14px;
+      color: #eee;
+      white-space: nowrap;
+    }
+    nav ul li .dropdown a:hover {
+      background-color: #ff6b13;
+      color: white;
+      border-radius: 6px;
+    }
+
+    .btn-rent {
+      background-color: #ff6b13;
+      color: white;
+      padding: 10px 20px;
+      font-weight: 700;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      z-index: 10;
+    }
+    .btn-rent:hover {
+      background-color: #e55a0f;
+    }
+
+    /* Hero content */
+    .hero-content {
+      max-width: 440px;
+      position: relative;
+      z-index: 5;
+      margin-top: 150px;
+    }
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: white;
+      margin-bottom: 14px;
+    }
+    .hero-content h1 .highlight {
+      color: #ff6b13;
+    }
+    .hero-content p {
+      font-size: 1rem;
+      color: #ddd;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .hero-content .btn-view {
+      background-color: #ff6b13;
+      color: white;
+      border-radius: 6px;
+      padding: 12px 28px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+    .hero-content .btn-view:hover {
+      background-color: #e55a0f;
+    }
+
+    /* --- ABOUT US CONTENT --- */
+    /* Reset & basics */
+    .about-section * {
+      box-sizing: border-box;
+    }
+    .about-section h2 {
+      font-weight: 700;
+      color: #111;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+    }
+    .about-section p {
+      margin-top: 0;
+      margin-bottom: 1.25rem;
+      color: #666;
+      font-size: 0.95rem;
+      max-width: 480px;
+    }
+    /* Section Container */
+    .about-section .section {
+      max-width: 1080px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 48px 20px 48px;
+    }
+    /* Flex utility for two column */
+    .about-section .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
+    .about-section .flex-row > div {
+      flex: 1 1 320px;
+      min-width: 280px;
+    }
+    
+    /* -------- First Section -------- */
+    .about-section .journey-section {
+      gap: 52px;
+    }
+    .about-section .journey-text {
+      max-width: 480px;
+    }
+    
+    /* -------- Stats Section -------- */
+    .about-section .stats-section {
+      background-color: #f6f6f6;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      text-align: center;
+    }
+    .about-section .stat-item {
+      flex: 1 1 160px;
+      max-width: 180px;
+      font-size: 0.9rem;
+    }
+    .about-section .stat-item .stat-number {
+      color: #ff6b1a;
+      font-weight: 700;
+      font-size: 1.7rem;
+      margin-bottom: 0.25rem;
+    }
+    .about-section .stat-item .stat-label {
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #222;
+    }
+    .about-section .stat-item .stat-description {
+      color: #666;
+      font-weight: 400;
+      font-size: 0.85rem;
+    }
+    
+    /* -------- Founder Section -------- */
+    .about-section .founder-section {
+      gap: 52px;
+      background-color: #fff;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+    .about-section .founder-text {
+      max-width: 480px;
+    }
+    
+    /* -------- Values Section -------- */
+    .about-section .values-section {
+      background-color: #f6f6f6;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      text-align: center;
+    }
+    .about-section .value-item {
+      flex: 1 1 140px;
+      max-width: 160px;
+      font-size: 0.9rem;
+    }
+    .about-section .icon-circle {
+      background-color: #ff6b1a;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 12px auto;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .about-section .icon-circle svg {
+      fill: #fff;
+      width: 28px;
+      height: 28px;
+    }
+    .about-section .value-label {
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #222;
+    }
+    .about-section .value-description {
+      color: #666;
+      font-weight: 400;
+      font-size: 0.85rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-section .flex-row {
+        flex-direction: column;
+        gap: 32px;
+      }
+      .about-section .stat-item, 
+      .about-section .value-item {
+        max-width: none;
+        flex: none;
+        width: 100%;
+      }
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: #1c1c1c;
+      color: #dadada;
+      font-size: 14px;
+      padding: 48px 5% 24px;
+    }
+    footer .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #3c3c3c;
+    }
+    footer .footer-logo {
+      flex: 1 1 280px;
+    }
+    footer .footer-logo h3 {
+      font-weight: 700;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    footer .footer-logo h3 svg {
+      fill: #ff6b13;
+      width: 26px;
+      height: 26px;
+    }
+    footer .footer-logo p {
+      color: #9e9e9e;
+      max-width: 280px;
+      font-size: 13px;
+      line-height: 1.4;
+      margin-bottom: 18px;
+      user-select: none;
+    }
+    footer .social-icons {
+      display: flex;
+      gap: 12px;
+    }
+    footer .social-icons a {
+      background-color: #ff6b13;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: background-color 0.3s ease;
+      flex-shrink: 0;
+    }
+    footer .social-icons a:hover {
+      background-color: #e55a0f;
+    }
+    footer .social-icons svg {
+      width: 16px;
+      height: 16px;
+      fill: white;
+    }
+
+    footer .newsletter {
+      flex: 1 1 320px;
+    }
+    footer .newsletter label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: white;
+      user-select: none;
+    }
+    footer .newsletter input[type="email"] {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    footer .newsletter button {
+      background-color: #ff6b13;
+      color: white;
+      width: 100%;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 0;
+      border-radius: 6px;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+    footer .newsletter button:hover {
+      background-color: #e55a0f;
+    }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      font-size: 14px;
+      gap: 40px;
+      color: #b7b7b7;
+      user-select: none;
+    }
+    footer .footer-links > div {
+      min-width: 160px;
+      flex: 1 1 150px;
+    }
+    footer .footer-links h4 {
+      color: white;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    footer .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    footer .footer-links ul li a {
+      color: #b7b7b7;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+    footer .footer-links ul li a:hover {
+      color: #ff6b13;
+    }
+    footer .footer-contact p {
+      margin-bottom: 6px;
+    }
+    footer .footer-contact p:last-child a {
+      color: #ff6b13;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    footer .footer-contact p:last-child a:hover {
+      text-decoration: underline;
+    }
+
+    footer .footer-bottom {
+      text-align: center;
+      color: #666;
+      font-size: 12px;
+      margin-top: 28px;
+      user-select: none;
+    }
+    footer .footer-bottom a {
+      color: #ff6b13;
+      text-decoration: none;
+    }
+    footer .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+    
+    .car-info-icons span img {
+      display: inline-block;
+      margin-right: 4px;
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+      border-radius: 0%;
+    }
+
+    /* --- Responsive Adjustments --- */
+    @media (max-width: 1100px) {
+      header {
+        min-height: 600px;
+      }
+      .hero-content {
+        margin-top: 100px;
+      }
+    }
+    
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        z-index: 99;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      nav .btn-rent {
+        display: none;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        min-height: 500px;
+        padding-bottom: 30px;
+      }
+      
+      .hero-content {
+        margin-top: 80px;
+      }
+      
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .hero-content p {
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header {
+        min-height: 450px;
+      }
+      
+      .hero-content {
+        margin-top: 60px;
+      }
+      
+      .hero-content h1 {
+        font-size: 1.6rem;
+      }
+      
+      .hero-content .btn-view {
+        width: 100%;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Primary navigation">
+      <a href="#" class="logo" aria-label="Radhe Rentals Home">
+        <span>Radhe Car Rental</span>
+      </a>
+      
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      
+      <ul role="list" aria-label="Main Navigation Menu">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="index2.html" class="active" aria-current="page">ABOUT US</a></li>
+        <li><a href="#">POLICY</a></li>
+        <li><a href="index4.html">CONTACT US</a></li>
+        <li><a href="index5.html"><button class="btn-rent" aria-label="Rent a vehicle now">RENT NOW</button></a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content" role="banner" aria-label="Explore the Road Ahead with Radhe Rentals hero section">
+      <h1>Explore the Road Ahead with <span class="highlight">Radhe Car Rental</span></h1>
+      <p>Discover our journey, values, and commitment to exceptional service</p>
+      <a href="index.html"><button class="btn-view" aria-label="View our fleet of cars">VIEW OUR CARS</button></a>
+     </div>
+
+  </header>
+
+  <!-- START ABOUT US CONTENT -->
+  <div class="about-section">
+    <!-- Our Journey & Mission Section -->
+    <section class="section journey-section flex-row" aria-labelledby="journey-title">
+      <div class="journey-text">
+        <h2 id="journey-title">Our Journey</h2>
+        <p>
+          Founded in 2010, Radhe Car Rental began with just 3 vehicles and a vision to transform transportation in Ahmedabad. What started as a small venture serving local businesses has grown into Ahmedabad's most trusted car rental service, with a fleet of over 200 vehicles serving thousands of satisfied customers.
+        </p>
+        <h2>Our Mission</h2>
+        <p>
+          We're committed to making travel accessible, affordable, and enjoyable for everyone. Our mission is to provide well-maintained vehicles with transparent pricing and exceptional customer service, ensuring every journey with Radhe is memorable for all the right reasons.
+        </p>
+      </div>
+      <div class="journey-image">
+        <img src="https://placehold.co/600x400?text=Radhe+Cars+in+Ahmedabad" alt="Radhe Car Rental fleet in Ahmedabad">
+      </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats-section" aria-label="Company Statistics and Achievements">
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years of Experience</div>
+        <div class="stat-description">Delivering reliable transportation solutions</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">Happy Clients</div>
+        <div class="stat-description">Satisfied customers who return again and again</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">200+</div>
+        <div class="stat-label">Vehicles</div>
+        <div class="stat-description">Well-maintained cars, SUVs, and luxury vehicles</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Locations</div>
+        <div class="stat-description">Convenient pickup points across Ahmedabad</div>
+      </div>
+    </section>
+    
+    <!-- Meet Our Founder & Expertise Section -->
+    <section class="section founder-section flex-row" aria-labelledby="founder-title">
+      <div class="founder-image">
+        <img src="https://placehold.co/600x400?text=Mr.+Rajesh+Sharma" alt="Mr. Rajesh Sharma, founder of Radhe Car Rental">
+      </div>
+      <div class="founder-text">
+        <h2 id="founder-title">Meet Our Founder</h2>
+        <p>
+          Mr. Rajesh Sharma started Radhe Car Rental with a vision to solve Ahmedabad's transportation challenges. With over 20 years in the automotive industry, his passion for vehicles and commitment to customer service form the foundation of our company. "We don't just rent cars, we deliver experiences," he often says.
+        </p>
+        <h2>Leadership &amp; Expertise</h2>
+        <p>
+          Our leadership team combines decades of automotive expertise with hospitality experience. We're constantly innovating to enhance your rental experience through technology while maintaining our core values of reliability, transparency, and personalized service.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Values Section -->
+    <section class="values-section" aria-label="Core company values">
+      <div class="value-item">
+        <div class="icon-circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </div>
+        <div class="value-label">Excellence</div>
+        <div class="value-description">We maintain the highest standards for our vehicles and customer service</div>
+      </div>
+      <div class="value-item">
+        <div class="icon-circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1L3 5V11c0 5.52 3.84 10.74 9 12 5.16-1.26 9-6.48 9-12V5l-9-4zM12 17a5 5 0 110-10 5 5 0 010 10z"/></svg>
+        </div>
+        <div class="value-label">Reliability</div>
+        <div class="value-description">You can count on us for punctual service and dependable vehicles</div>
+      </div>
+      <div class="value-item">
+        <div class="icon-circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 17h2v-2h-2v2zm0-4h2v-6h-2v6zm-9 6v2h20v-2H2z"/></svg>
+        </div>
+        <div class="value-label">Affordability</div>
+        <div class="value-description">Competitive pricing without compromising on quality or safety</div>
+      </div>
+      <div class="value-item">
+        <div class="icon-circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.89 1.99 5.41 4.7 6.19v4.81L12 16l2.3 4v-4.81A6.995 6.995 0 0019 9c0-3.87-3.13-7-7-7zm0 2a5 5 0 015 5c0 1.13-.44 2.16-1.17 2.94L12 15l-3.83-3.06A4.984 4.984 0 017 9a5 5 0 015-5z"/></svg>
+        </div>
+        <div class="value-label">Loyalty</div>
+        <div class="value-description">We value long-term relationships and reward our regular customers</div>
+      </div>
+    </section>
+  </div>
+  <!-- END ABOUT US CONTENT -->
+
+  <footer aria-label="Page footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <h3 aria-label="Radhe Rentals logo and brand name" style="text-transform: capitalize;">
+          Radhe Car Rental
+        </h3>
+        <p>Discover quality vehicles and exceptional service for your journey.</p>
+        <div class="social-icons" role="list" aria-label="Social media links">
+          <a href="#" aria-label="Instagram" tabindex="0" title="Instagram" rel="noopener"style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);" >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="WhatsApp" tabindex="0" title="WhatsApp" rel="noopener" style="background-color:#25d366;">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-links" role="navigation" aria-label="Footer site navigation">
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="index2.html">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Get In Touch</h4>
+        <p>+971 12 345 6789</p>
+        <p>info@radhe.com</p>
+        <p>Nikol<br />Ahmedabad, Gujarat, India</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2023 Radhe Car Rental. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      const menu = document.querySelector('nav ul');
+      menu.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
