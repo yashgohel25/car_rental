@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GEARSHIFT | Terms and Conditions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary: #222222;
+      --secondary: #f97316;
+      --light: #f8f8f8;
+      --dark: #111111;
+      --gray: #4a4a4a;
+      --light-gray: #dddddd;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: var(--gray);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: var(--primary);
+      padding: 0.75rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    /* Updated Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+      z-index: 10;
+      position: relative;
+      font-weight: 700;
+      text-decoration: none;        
+    }
+    
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      z-index: 10;
+      color: white;
+      text-decoration: none;
+    }
+    
+    nav .logo svg {
+      height: 26px;
+      width: 26px;
+      fill: #ff6b13;
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 28px;
+      z-index: 100;
+      cursor: pointer;
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    nav ul li {
+      position: relative;
+    }
+    
+    nav ul li a {
+      color: #eee;
+      padding: 4px 0;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ff6b13;
+    }
+    
+    .btn-rent {
+      background-color: #ff6b13;
+      color: white;
+      padding: 10px 20px;
+      font-weight: 700;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      z-index: 10;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-rent:hover {
+      background-color: #e55a0f;
+    }
+    
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        z-index: 99;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+    }
+    
+    /* Main content styles - Updated for responsiveness */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--gray);
+      background-color: #ffffff;
+      flex: 1;
+      width: 100%;
+    }
+
+    .policy-header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+      color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .policy-header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+
+    .policy-header p {
+      margin: 10px 0 0;
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+
+    .policy-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .terms-list {
+      list-style-type: none;
+      padding: 0;
+      counter-reset: terms-counter;
+    }
+
+    .term-item {
+      margin-bottom: 25px;
+      padding: 20px 20px 20px 80px;
+      position: relative;
+      border-left: 4px solid var(--secondary);
+      background-color: #f8f9fa;
+      border-radius: 0 8px 8px 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .term-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .term-item:before {
+      counter-increment: terms-counter;
+      content: counter(terms-counter);
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--secondary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .term-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .term-item p {
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .signature-section {
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 1px solid var(--light-gray);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .signature-box {
+      flex: 1 1 300px;
+      min-width: 250px;
+    }
+
+    .signature-line {
+      border-top: 1px solid var(--gray);
+      padding-top: 40px;
+      margin-top: 5px;
+      text-align: center;
+      color: var(--gray);
+    }
+
+    .note-box {
+      background-color: #fff8f0;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 30px 0;
+      border-left: 4px solid var(--secondary);
+    }
+    
+    .note-box p {
+      color: var(--dark);
+      margin: 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        padding: 0.75rem 1rem;
+      }
+      
+      .policy-header {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+      }
+      
+      .policy-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .policy-header p {
+        font-size: 1rem;
+      }
+      
+      .policy-content {
+        padding: 20px 15px;
+      }
+      
+      .term-item {
+        padding: 15px 15px 15px 70px;
+      }
+      
+      .term-item:before {
+        left: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+      
+      .term-title {
+        font-size: 1.1rem;
+      }
+      
+      .signature-box {
+        width: 100%;
+        flex: 1 1 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .policy-header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .term-item {
+        padding: 15px 15px 15px 60px;
+      }
+      
+      .term-item:before {
+        left: 10px;
+        width: 30px;
+        height: 30px;
+      }
+      
+      .term-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav aria-label="Primary navigation">
+      <a href="#" class="logo" aria-label="GearShift Home">
+        <svg aria-hidden="true" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 0A32 32 0 1064 32 32.036 32.036 0 0032 0zm0 58A26 26 0 1158 32 26.029 26.029 0 0132 58z"/><path d="M32 16a16 16 0 1016 16A16.018 16.018 0 0032 16zm0 28a12 12 0 1112-12 12.013 12.013 0 01-12 12z"/></svg>
+        <span>RADHE CAR RENTAL</span>
+      </a>
+      
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      
+      <ul role="list" aria-label="Main Navigation Menu">
+        <li><a href="index.html" >HOME</a></li>
+        <li><a href="index2.html">ABOUT US</a></li>
+        <li><a href="index3.html" class="active" aria-current="page" >POLICY</a></li>
+        <li><a href="index4.html">CONTACT US</a></li>
+        <li><a href="index5.html"><button class="btn-rent" aria-label="Rent a vehicle now">RENT NOW</button></a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="policy-header">
+      <h1>TERMS AND CONDITIONS</h1>
+      <p>Please read the following terms carefully before renting a vehicle</p>
+    </div>
+
+    <div class="policy-content">
+      <ol class="terms-list">
+        <li class="term-item">
+          <div class="term-title">DAMAGES</div>
+          <p>If any damage occurred customer will have to bear all the cost of damage. If any damages will be detected in the next 15 days after the ending of booking customer will be liable.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">FLOOD-DAMAGE</div>
+          <p>Please be careful in this monsoon season, and don't drive in excess water, otherwise customer will be responsible for the damages and hence will have to compensate.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">FUEL</div>
+          <p>Please check the fuel before starting your trip and make sure you keep at least the amount of fuel given to you in the tank while commencing your trip. If you have filled whatever amount of extra fuel than the amount given to you during the start of trip, then in that case no compensation will be given by the company.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">DROP POINT</div>
+          <p>Drop the Vehicle at the promised place.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">DOCUMENTS</div>
+          <p>Aadhar Card, LightsBill, Passport, Driving Licence, two blank cheques and Mobile Number of the person taking over the vehicle is to be compulsory mentioned.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">ILLEGAL ACTIVITY</div>
+          <p>No illegal activity like loot, transport of intoxicants, liquor or its consumption & sale is strictly banned in vehicle. And hence all the responsibility lies over customer.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">EXTENSION POLICY</div>
+          <p>The Vehicle is to be returned on the date as decided earlier, if customer has to extend the booking, in that case he/she has to inform the company 24 hours earlier through Whatsapp.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">AUTHORIZED PERSON</div>
+          <p>The Vehicle is to be drive only by the authorized person, whose license is deposited in the company.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">CONDITION</div>
+          <p>The vehicle is to be return in the same condition as held during the videography.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">CHARGES</div>
+          <p>Payment is to be done as per the kms. Decided earlier, any extra kms. Runs, if any would additional charged.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">LEGALITY</div>
+          <p>Giving Car On Rent comes under Motor Vehicle Act Section 43 & 51.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">LEGAL JURISDICTION</div>
+          <p>If any legal action will be required then it will be taken in Ahmadabad itself. Radhe Car Rental.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">LUGGAGE</div>
+          <p>Please Check all luggage before leving the vehicle & Luggage will be at owner's risk.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">FACILITIES</div>
+          <p>TV & DVD are more other Facilities of it will be not working During Tour.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">DISPUTES</div>
+          <p>They can not make any argue against it.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">MILEAGE & TIME</div>
+          <p>Please Check Starting & Closing Km. & Time.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">EXTENDED USAGE</div>
+          <p>We do charge for second day After 12:00 pm.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">PROHIBITED ITEMS</div>
+          <p>Do not take Alcohol/Smoking things in Vehicle.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">ADVANCE DEPOSIT</div>
+          <p>Advance Deposit Non Refundable any reason.</p>
+        </li>
+        
+        <li class="term-item">
+          <div class="term-title">AIR CONDITIONING</div>
+          <p>Air condition will not work in Parked Vehicles.</p>
+        </li>
+      </ol>
+
+      <div class="note-box">
+        <p><strong>Note:</strong> These terms and conditions are subject to change without prior notice. Please ensure you have read and understood all points before booking</p>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 GEARSHIFT. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      const menu = document.querySelector('nav ul');
+      menu.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
