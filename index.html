@@ -889,6 +889,11 @@
       .hero-content {
         animation: none;
       }
+      
+      /* Disable counting animation if user prefers reduced motion */
+      .stat-box .number {
+        transition: none !important;
+      }
     }
 
     /* Mobile-specific animation adjustments */
@@ -935,19 +940,19 @@
 
   <section class="stats-section" aria-label="Statistics on experience, clients, vehicles, locations">
     <div class="stat-box" tabindex="0" aria-label="More than 10 years of experience">
-      <div class="number">10+</div>
+      <div class="number" data-target="10">0+</div>
       <div class="label">Years of Experience</div>
     </div>
     <div class="stat-box" tabindex="0" aria-label="More than 1000 happy clients">
-      <div class="number">1000+</div>
+      <div class="number" data-target="1000">0+</div>
       <div class="label">Happy Clients</div>
     </div>
     <div class="stat-box" tabindex="0" aria-label="More than 200 vehicles available">
-      <div class="number">200+</div>
+      <div class="number" data-target="200">0+</div>
       <div class="label">Vehicles</div>
     </div>
     <div class="stat-box" tabindex="0" aria-label="More than 10 locations">
-      <div class="number">10+</div>
+      <div class="number" data-target="10">0+</div>
       <div class="label">Locations</div>
     </div>
   </section>
@@ -1163,6 +1168,60 @@
       });
     }
 
+    // Counting animation for statistics
+    function animateCounter(element, target, duration = 1000) {
+      let startTime = null;
+      const startValue = 0;
+      const suffix = element.textContent.includes('+') ? '+' : '';
+      
+      function updateCounter(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const currentValue = Math.floor(progress * (target - startValue) + startValue);
+        element.textContent = currentValue + suffix;
+        
+        if (progress < 1) {
+          window.requestAnimationFrame(updateCounter);
+        }
+      }
+      
+      window.requestAnimationFrame(updateCounter);
+    }
+    
+    // Function to initialize counter animation when stats are in view
+    function initCounterAnimation() {
+      const statNumbers = document.querySelectorAll('.stats-section .number');
+      let hasAnimated = false;
+      
+      const observerOptions = {
+        threshold: window.innerWidth <= 768 ? 0.1 : 0.3,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasAnimated) {
+            hasAnimated = true;
+            
+            // Animate all numbers simultaneously
+            statNumbers.forEach(numberElement => {
+              const target = parseInt(numberElement.getAttribute('data-target'));
+              animateCounter(numberElement, target, 1200); // Fast animation (1200ms)
+            });
+            
+            // Stop observing after animation
+            statsObserver.disconnect();
+          }
+        });
+      }, observerOptions);
+      
+      // Observe the stats section container
+      const statsSection = document.querySelector('.stats-section');
+      if (statsSection) {
+        statsObserver.observe(statsSection);
+      }
+    }
+
     // NEW: Scroll animation with Intersection Observer API
     document.addEventListener('DOMContentLoaded', function() {
       const animatedElements = document.querySelectorAll('.stat-box, .car-card, .location-card, .feature-box, .how-step');
@@ -1171,6 +1230,9 @@
       animatedElements.forEach(element => {
         element.classList.add('animate-on-scroll');
       });
+      
+      // Initialize counter animation
+      initCounterAnimation();
       
       // Function to create observer with appropriate settings
       function createObserver() {
