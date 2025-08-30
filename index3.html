@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GEARSHIFT | Terms and Conditions</title>
+  <title>Radhe Car Rental - Terms and Conditions</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* Reset and base styles */
@@ -118,6 +118,54 @@
     .btn-rent:hover {
       background-color: #e55a0f;
     }
+    
+    /* --- NEW ANIMATION STYLES --- */
+    /* Fade-in and zoom animation */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Specific animations for different elements */
+    .policy-header.animate-on-scroll {
+      transform: translateY(40px) scale(0.95);
+    }
+
+    .term-item.animate-on-scroll {
+      transform: translateY(30px) scale(0.9);
+    }
+
+    .note-box.animate-on-scroll {
+      transform: translateY(30px) scale(0.95);
+    }
+
+    /* Stagger animation for term items */
+    .term-item.animate-on-scroll:nth-child(1) { transition-delay: 0.05s; }
+    .term-item.animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+    .term-item.animate-on-scroll:nth-child(3) { transition-delay: 0.15s; }
+    .term-item.animate-on-scroll:nth-child(4) { transition-delay: 0.2s; }
+    .term-item.animate-on-scroll:nth-child(5) { transition-delay: 0.25s; }
+    .term-item.animate-on-scroll:nth-child(6) { transition-delay: 0.3s; }
+    .term-item.animate-on-scroll:nth-child(7) { transition-delay: 0.35s; }
+    .term-item.animate-on-scroll:nth-child(8) { transition-delay: 0.4s; }
+    .term-item.animate-on-scroll:nth-child(9) { transition-delay: 0.45s; }
+    .term-item.animate-on-scroll:nth-child(10) { transition-delay: 0.5s; }
+    .term-item.animate-on-scroll:nth-child(11) { transition-delay: 0.55s; }
+    .term-item.animate-on-scroll:nth-child(12) { transition-delay: 0.6s; }
+    .term-item.animate-on-scroll:nth-child(13) { transition-delay: 0.65s; }
+    .term-item.animate-on-scroll:nth-child(14) { transition-delay: 0.7s; }
+    .term-item.animate-on-scroll:nth-child(15) { transition-delay: 0.75s; }
+    .term-item.animate-on-scroll:nth-child(16) { transition-delay: 0.8s; }
+    .term-item.animate-on-scroll:nth-child(17) { transition-delay: 0.85s; }
+    .term-item.animate-on-scroll:nth-child(18) { transition-delay: 0.9s; }
+    .term-item.animate-on-scroll:nth-child(19) { transition-delay: 0.95s; }
+    .term-item.animate-on-scroll:nth-child(20) { transition-delay: 1s; }
     
     @media (max-width: 900px) {
       .menu-toggle {
@@ -324,6 +372,41 @@
         width: 100%;
         flex: 1 1 100%;
       }
+      
+      /* Mobile-specific animation adjustments */
+      .policy-header.animate-on-scroll {
+        transform: translateY(30px) scale(0.95);
+      }
+
+      .term-item.animate-on-scroll {
+        transform: translateY(20px) scale(0.95);
+      }
+
+      .note-box.animate-on-scroll {
+        transform: translateY(20px) scale(0.95);
+      }
+      
+      /* Reduce transition delays on mobile for faster sequencing */
+      .term-item.animate-on-scroll:nth-child(1) { transition-delay: 0.03s; }
+      .term-item.animate-on-scroll:nth-child(2) { transition-delay: 0.06s; }
+      .term-item.animate-on-scroll:nth-child(3) { transition-delay: 0.09s; }
+      .term-item.animate-on-scroll:nth-child(4) { transition-delay: 0.12s; }
+      .term-item.animate-on-scroll:nth-child(5) { transition-delay: 0.15s; }
+      .term-item.animate-on-scroll:nth-child(6) { transition-delay: 0.18s; }
+      .term-item.animate-on-scroll:nth-child(7) { transition-delay: 0.21s; }
+      .term-item.animate-on-scroll:nth-child(8) { transition-delay: 0.24s; }
+      .term-item.animate-on-scroll:nth-child(9) { transition-delay: 0.27s; }
+      .term-item.animate-on-scroll:nth-child(10) { transition-delay: 0.3s; }
+      .term-item.animate-on-scroll:nth-child(11) { transition-delay: 0.33s; }
+      .term-item.animate-on-scroll:nth-child(12) { transition-delay: 0.36s; }
+      .term-item.animate-on-scroll:nth-child(13) { transition-delay: 0.39s; }
+      .term-item.animate-on-scroll:nth-child(14) { transition-delay: 0.42s; }
+      .term-item.animate-on-scroll:nth-child(15) { transition-delay: 0.45s; }
+      .term-item.animate-on-scroll:nth-child(16) { transition-delay: 0.48s; }
+      .term-item.animate-on-scroll:nth-child(17) { transition-delay: 0.51s; }
+      .term-item.animate-on-scroll:nth-child(18) { transition-delay: 0.54s; }
+      .term-item.animate-on-scroll:nth-child(19) { transition-delay: 0.57s; }
+      .term-item.animate-on-scroll:nth-child(20) { transition-delay: 0.6s; }
     }
     
     @media (max-width: 480px) {
@@ -345,145 +428,154 @@
         font-size: 1rem;
       }
     }
+    
+    /* Animation for reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-on-scroll {
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
     <nav aria-label="Primary navigation">
-      <a href="#" class="logo" aria-label="GearShift Home">
-        <span>RADHE CAR RENTAL</span>
+      <a href="#" class="logo" aria-label="Radhe Car Rental Home">
+        <span>Radhe Car Rental</span>
       </a>
       
       <button class="menu-toggle" aria-label="Toggle menu">☰</button>
       
       <ul role="list" aria-label="Main Navigation Menu">
-        <li><a href="index.html" >HOME</a></li>
-        <li><a href="index2.html">ABOUT US</a></li>
-        <li><a href="index3.html" class="active" aria-current="page" >POLICY</a></li>
-        <li><a href="index4.html">CONTACT US</a></li>
-        <li><a href="index5.html"><button class="btn-rent" aria-label="Rent a vehicle now">RENT NOW</button></a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index2.html">About Us</a></li>
+        <li><a href="index3.html" class="active" aria-current="page">Policy</a></li>
+        <li><a href="index4.html">Contact Us</a></li>
+        <li><a href="index5.html"><button class="btn-rent" aria-label="Rent a vehicle now">Rent Now</button></a></li>
       </ul>
     </nav>
   </header>
   
   <main>
-    <div class="policy-header">
-      <h1>TERMS AND CONDITIONS</h1>
+    <div class="policy-header animate-on-scroll">
+      <h1>Terms and Conditions</h1>
       <p>Please read the following terms carefully before renting a vehicle</p>
     </div>
 
     <div class="policy-content">
       <ol class="terms-list">
-        <li class="term-item">
-          <div class="term-title">DAMAGES</div>
-          <p>If any damage occurred customer will have to bear all the cost of damage. If any damages will be detected in the next 15 days after the ending of booking customer will be liable.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Damages</div>
+          <p>If any damage occurs, the customer will bear all costs of repair. Any damages detected within 15 days after the booking period will be the customer's liability.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">FLOOD-DAMAGE</div>
-          <p>Please be careful in this monsoon season, and don't drive in excess water, otherwise customer will be responsible for the damages and hence will have to compensate.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Flood Damage</div>
+          <p>Please be careful during the monsoon season and avoid driving through excess water. The customer will be responsible for any flood-related damages and will be required to compensate for repairs.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">FUEL</div>
-          <p>Please check the fuel before starting your trip and make sure you keep at least the amount of fuel given to you in the tank while commencing your trip. If you have filled whatever amount of extra fuel than the amount given to you during the start of trip, then in that case no compensation will be given by the company.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Fuel</div>
+          <p>Please check the fuel level before starting your trip and ensure you maintain at least the same amount of fuel that was provided at the start of your rental. Any extra fuel filled beyond the initial amount will not be compensated by the company.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">DROP POINT</div>
-          <p>Drop the Vehicle at the promised place.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Drop Point</div>
+          <p>The vehicle must be returned to the agreed-upon location at the end of the rental period.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">DOCUMENTS</div>
-          <p>Aadhar Card, LightsBill, Passport, Driving Licence, two blank cheques and Mobile Number of the person taking over the vehicle is to be compulsory mentioned.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Documents</div>
+          <p>Aadhar Card, Light Bill, Passport, Driving License, two blank cheques, and the mobile number of the person taking the vehicle must be provided.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">ILLEGAL ACTIVITY</div>
-          <p>No illegal activity like loot, transport of intoxicants, liquor or its consumption & sale is strictly banned in vehicle. And hence all the responsibility lies over customer.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Illegal Activity</div>
+          <p>No illegal activities including theft, transport of intoxicants, liquor consumption, or sale are permitted in the vehicle. The customer bears full responsibility for any illegal activities conducted using the vehicle.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">EXTENSION POLICY</div>
-          <p>The Vehicle is to be returned on the date as decided earlier, if customer has to extend the booking, in that case he/she has to inform the company 24 hours earlier through Whatsapp.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Extension Policy</div>
+          <p>The vehicle must be returned on the agreed date. For extensions, customers must inform the company at least 24 hours in advance via WhatsApp.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">AUTHORIZED PERSON</div>
-          <p>The Vehicle is to be drive only by the authorized person, whose license is deposited in the company.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Authorized Person</div>
+          <p>The vehicle may only be driven by the authorized person whose license has been provided to the company.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">CONDITION</div>
-          <p>The vehicle is to be return in the same condition as held during the videography.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Condition</div>
+          <p>The vehicle must be returned in the same condition as documented during the initial inspection and videography.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">CHARGES</div>
-          <p>Payment is to be done as per the kms. Decided earlier, any extra kms. Runs, if any would additional charged.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Charges</div>
+          <p>Payment is to be made according to the pre-agreed kilometers. Any additional kilometers driven will be charged extra.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">LEGALITY</div>
-          <p>Giving Car On Rent comes under Motor Vehicle Act Section 43 & 51.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Legality</div>
+          <p>Car rentals fall under the Motor Vehicle Act Section 43 & 51.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">LEGAL JURISDICTION</div>
-          <p>If any legal action will be required then it will be taken in Ahmadabad itself. Radhe Car Rental.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Legal Jurisdiction</div>
+          <p>Any legal proceedings will be conducted in Ahmedabad. Radhe Car Rental.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">LUGGAGE</div>
-          <p>Please Check all luggage before leving the vehicle & Luggage will be at owner's risk.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Luggage</div>
+          <p>Please check all luggage before leaving the vehicle. The company is not responsible for any lost or stolen items.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">FACILITIES</div>
-          <p>TV & DVD are more other Facilities of it will be not working During Tour.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Facilities</div>
+          <p>TV & DVD and other entertainment facilities may not work during the tour.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">DISPUTES</div>
-          <p>They can not make any argue against it.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Disputes</div>
+          <p>Customers cannot dispute these terms and conditions once the rental agreement is signed.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">MILEAGE & TIME</div>
-          <p>Please Check Starting & Closing Km. & Time.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Mileage & Time</div>
+          <p>Please verify the starting and closing kilometers and time before and after your rental period.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">EXTENDED USAGE</div>
-          <p>We do charge for second day After 12:00 pm.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Extended Usage</div>
+          <p>We charge for a second day after 12:00 PM.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">PROHIBITED ITEMS</div>
-          <p>Do not take Alcohol/Smoking things in Vehicle.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Prohibited Items</div>
+          <p>Alcohol and smoking materials are prohibited in the vehicle.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">ADVANCE DEPOSIT</div>
-          <p>Advance Deposit Non Refundable any reason.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Advance Deposit</div>
+          <p>Advance deposits are non-refundable under any circumstances.</p>
         </li>
         
-        <li class="term-item">
-          <div class="term-title">AIR CONDITIONING</div>
-          <p>Air condition will not work in Parked Vehicles.</p>
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Air Conditioning</div>
+          <p>The air conditioning system will not work when the vehicle is parked with the engine off.</p>
         </li>
       </ol>
 
-      <div class="note-box">
-        <p><strong>Note:</strong> These terms and conditions are subject to change without prior notice. Please ensure you have read and understood all points before booking</p>
+      <div class="note-box animate-on-scroll">
+        <p><strong>Note:</strong> These terms and conditions are subject to change without prior notice. Please ensure you have read and understood all points before booking.</p>
       </div>
     </div>
   </main>
   
   <footer>
-    <p>&copy; 2023 GEARSHIFT. All rights reserved.</p>
+    <p>&copy; 2023 Radhe Car Rental. All rights reserved.</p>
   </footer>
   
   <script>
@@ -491,6 +583,70 @@
     document.querySelector('.menu-toggle').addEventListener('click', function() {
       const menu = document.querySelector('nav ul');
       menu.classList.toggle('show');
+    });
+
+    // NEW: Scroll animation with Intersection Observer API
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.policy-header, .term-item, .note-box');
+      
+      // Add the animate-on-scroll class to all target elements
+      animatedElements.forEach(element => {
+        element.classList.add('animate-on-scroll');
+      });
+      
+      // Function to create observer with appropriate settings
+      function createObserver() {
+        // Adjust settings based on screen size
+        const isMobile = window.innerWidth <= 768;
+        
+        const observerOptions = {
+          threshold: isMobile ? 0.1 : 0.15, // Lower threshold on mobile
+          rootMargin: isMobile ? '0px 0px -10px 0px' : '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Add the 'animated' class when element is in view
+              entry.target.classList.add('animated');
+              
+              // Unobserve after animation to improve performance
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+        
+        return observer;
+      }
+      
+      // Create and use the observer
+      const observer = createObserver();
+      
+      // Observe all animated elements
+      animatedElements.forEach(element => {
+        observer.observe(element);
+      });
+      
+      // Update observer on window resize
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+          // Disconnect existing observer
+          observer.disconnect();
+          
+          // Create new observer with updated settings
+          const newObserver = createObserver();
+          
+          // Observe all elements again
+          animatedElements.forEach(element => {
+            // Only observe elements that haven't been animated yet
+            if (!element.classList.contains('animated')) {
+              newObserver.observe(element);
+            }
+          });
+        }, 250);
+      });
     });
   </script>
 </body>
