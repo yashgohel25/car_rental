@@ -891,6 +891,21 @@
       }
     }
 
+    /* Mobile-specific animation adjustments */
+    @media (max-width: 768px) {
+      .car-card.animate-on-scroll {
+        transform: translateY(30px) scale(0.95);
+        transition-delay: 0s;
+      }
+      
+      /* Reduce transition delays on mobile for faster sequencing */
+      .car-card.animate-on-scroll:nth-child(1) { transition-delay: 0.05s; }
+      .car-card.animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+      .car-card.animate-on-scroll:nth-child(3) { transition-delay: 0.15s; }
+      .car-card.animate-on-scroll:nth-child(4) { transition-delay: 0.2s; }
+      .car-card.animate-on-scroll:nth-child(5) { transition-delay: 0.25s; }
+      .car-card.animate-on-scroll:nth-child(6) { transition-delay: 0.3s; }
+    }
   </style>
 </head>
 <body>
@@ -1119,7 +1134,7 @@
     </div>
   </footer>
   
-  <script>
+   <script>
     // Mobile menu toggle
     document.querySelector('.menu-toggle').addEventListener('click', function() {
       const menu = document.querySelector('nav ul');
@@ -1157,25 +1172,58 @@
         element.classList.add('animate-on-scroll');
       });
       
-      // Create the intersection observer
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Add the 'animated' class when element is in view
-            entry.target.classList.add('animated');
-            
-            // Unobserve after animation to improve performance
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.99, // Trigger when 30% of element is visible
-        rootMargin: '0px 0px -50px 0px' // Adjust trigger point slightly upward
-      });
+      // Function to create observer with appropriate settings
+      function createObserver() {
+        // Adjust settings based on screen size
+        const isMobile = window.innerWidth <= 768;
+        
+        const observerOptions = {
+          threshold: isMobile ? 0.1 : 0.15, // Lower threshold on mobile
+          rootMargin: isMobile ? '0px 0px -10px 0px' : '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Add the 'animated' class when element is in view
+              entry.target.classList.add('animated');
+              
+              // Unobserve after animation to improve performance
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+        
+        return observer;
+      }
+      
+      // Create and use the observer
+      const observer = createObserver();
       
       // Observe all animated elements
       animatedElements.forEach(element => {
         observer.observe(element);
+      });
+      
+      // Update observer on window resize
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+          // Disconnect existing observer
+          observer.disconnect();
+          
+          // Create new observer with updated settings
+          const newObserver = createObserver();
+          
+          // Observe all elements again
+          animatedElements.forEach(element => {
+            // Only observe elements that haven't been animated yet
+            if (!element.classList.contains('animated')) {
+              newObserver.observe(element);
+            }
+          });
+        }, 250);
       });
       
       // Parallax effect for header on scroll
@@ -1191,4 +1239,3 @@
   </script>
 </body>
 </html>
-
