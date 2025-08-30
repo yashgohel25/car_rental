@@ -699,6 +699,11 @@
       .hero-content {
         animation: none;
       }
+      
+      /* Disable counting animation if user prefers reduced motion */
+      .stat-item .stat-number {
+        transition: none !important;
+      }
     }
   </style>
 </head>
@@ -750,22 +755,22 @@
     <!-- Stats Section -->
     <section class="stats-section" aria-label="Company Statistics and Achievements">
       <div class="stat-item animate-on-scroll">
-        <div class="stat-number">10+</div>
+        <div class="stat-number" data-target="10">0+</div>
         <div class="stat-label">Years of Experience</div>
         <div class="stat-description">Delivering reliable transportation solutions</div>
       </div>
       <div class="stat-item animate-on-scroll">
-        <div class="stat-number">1000+</div>
+        <div class="stat-number" data-target="1000">0+</div>
         <div class="stat-label">Happy Clients</div>
         <div class="stat-description">Satisfied customers who return again and again</div>
       </div>
       <div class="stat-item animate-on-scroll">
-        <div class="stat-number">200+</div>
+        <div class="stat-number" data-target="200">0+</div>
         <div class="stat-label">Vehicles</div>
         <div class="stat-description">Well-maintained cars, SUVs, and luxury vehicles</div>
       </div>
       <div class="stat-item animate-on-scroll">
-        <div class="stat-number">10+</div>
+        <div class="stat-number" data-target="10">0+</div>
         <div class="stat-label">Locations</div>
         <div class="stat-description">Convenient pickup points across Ahmedabad</div>
       </div>
@@ -885,6 +890,60 @@
       });
     }
 
+    // Counting animation for statistics
+    function animateCounter(element, target, duration = 1000) {
+      let startTime = null;
+      const startValue = 0;
+      const suffix = element.textContent.includes('+') ? '+' : '';
+      
+      function updateCounter(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const currentValue = Math.floor(progress * (target - startValue) + startValue);
+        element.textContent = currentValue + suffix;
+        
+        if (progress < 1) {
+          window.requestAnimationFrame(updateCounter);
+        }
+      }
+      
+      window.requestAnimationFrame(updateCounter);
+    }
+    
+    // Function to initialize counter animation when stats are in view
+    function initCounterAnimation() {
+      const statNumbers = document.querySelectorAll('.about-section .stat-number');
+      let hasAnimated = false;
+      
+      const observerOptions = {
+        threshold: window.innerWidth <= 768 ? 0.1 : 0.3,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasAnimated) {
+            hasAnimated = true;
+            
+            // Animate all numbers simultaneously
+            statNumbers.forEach(numberElement => {
+              const target = parseInt(numberElement.getAttribute('data-target'));
+              animateCounter(numberElement, target, 1200); // Fast animation (1200ms)
+            });
+            
+            // Stop observing after animation
+            statsObserver.disconnect();
+          }
+        });
+      }, observerOptions);
+      
+      // Observe the stats section container
+      const statsSection = document.querySelector('.about-section .stats-section');
+      if (statsSection) {
+        statsObserver.observe(statsSection);
+      }
+    }
+
     // NEW: Scroll animation with Intersection Observer API
     document.addEventListener('DOMContentLoaded', function() {
       const animatedElements = document.querySelectorAll('.journey-text, .journey-image, .stat-item, .founder-text, .founder-image, .value-item');
@@ -893,6 +952,9 @@
       animatedElements.forEach(element => {
         element.classList.add('animate-on-scroll');
       });
+      
+      // Initialize counter animation
+      initCounterAnimation();
       
       // Function to create observer with appropriate settings
       function createObserver() {
