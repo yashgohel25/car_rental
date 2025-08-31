@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEARSHIFT | Premium Car Rentals</title>
+    <title>Radhe Car Rental |  Car Rentals</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* All your existing CSS remains the same */
@@ -590,20 +590,65 @@
         .suggestion-item:hover {
             background-color: #f5f5f5;
         }
+
+          .loading-buffer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+    
+    .loading-buffer.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #ff6b13;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    .loading-buffer p {
+      font-size: 18px;
+      color: #333;
+      font-weight: 600;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
     </style>
 </head>
 <body>
+      <div class="loading-buffer" id="loadingBuffer">
+    <div class="loader"></div>
+    <p>Loading Radhe Car Rental...</p>
+  </div>
     <!-- Header -->
     <header>
         <nav aria-label="Primary navigation">
-            <a href="#" class="logo" aria-label="GearShift Home">
+            <a href="#" class="logo" aria-label="Radhe Car Rental Home">
                 <span>Radhe Car Rental</span>
             </a>
             
             <button class="menu-toggle" aria-label="Toggle menu">☰</button>
             
         <ul role="list" aria-label="Main Navigation Menu">
-        <li><a href="index.html" class="active" aria-current="page">HOME</a></li>
+        <li><a href="index.html">HOME</a></li>
         <li><a href="index2.html">ABOUT US</a></li>
         <li><a href="index3.html">POLICY</a></li>
         <li><a href="index4.html">CONTACT US</a></li>
@@ -621,7 +666,7 @@
                     <h1>Radhe Car Rental</h1>
                 </div>
                 <h2> Car Rentals</h2>
-                <p>Get behind the wheel of a reliable SUV or mid-size car without breaking the bank..</p>
+                <p>Get behind the wheel of a reliable SUV or mid-size car without breaking the bank.</p>
                 
                 <div class="contact-details">
                     <div class="contact-item">
@@ -640,7 +685,7 @@
                         </div>
                         <div class="contact-text">
                             <h3>Email</h3>
-                            <p>info@gearshift.ce</p>
+                            <p>info@radhecars.com</p>
                         </div>
                     </div>
                     
@@ -660,6 +705,7 @@
                 <div class="form-header">
                     <h2>Book Your Car</h2>
                     <p>Fill out the form below to reserve your vehicle</p>
+                    <p style="color: red;">This is an enquiry page, not a confirmation page. Your enquiry will be sent via WhatsApp, and we will contact you soon to begin the confirmation process.</p>
                 </div>
                 
                 <form id="booking-form">
@@ -800,7 +846,7 @@
                             <label for="message">Special Requests</label>
                             <div class="input-with-icon">
                                 <i class="fas fa-comment input-icon"></i>
-                                <textarea id="message" placeholder="Any special requirements or additional information..." ></textarea>
+                                <textarea id="message" placeholder="Any special requirements or additional information..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -815,7 +861,7 @@
     
     <!-- Footer -->
     <footer>
-        &copy; 2023 Radhe Car Rental  Car Rentals. All rights reserved.
+        &copy; 2023 Radhe Car Rental. All rights reserved.
     </footer>
 
     <!-- Success message -->
@@ -825,6 +871,30 @@
     </div>
 
     <script>
+
+         // Show loading buffer initially
+    const loadingBuffer = document.getElementById('loadingBuffer');
+    
+    // Hide loading buffer when page is fully loaded
+    window.addEventListener('load', function() {
+      // Add a small delay for a smoother transition
+      setTimeout(function() {
+        loadingBuffer.classList.add('hidden');
+        
+        // Remove from DOM after animation completes to improve performance
+        setTimeout(function() {
+          loadingBuffer.style.display = 'none';
+        }, 500);
+      }, 500);
+    });
+    
+    // Also hide loading buffer if there's an error
+    window.addEventListener('error', function() {
+      loadingBuffer.classList.add('hidden');
+      setTimeout(function() {
+        loadingBuffer.style.display = 'none';
+      }, 500);
+    });
         // Mobile menu toggle
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             const menu = document.querySelector('nav ul');
@@ -859,7 +929,7 @@
             const message = document.getElementById('message').value;
             
             // Format WhatsApp message
-            let whatsappMessage = `*New Car Rental Query from Radhe CAR Rental Website*%0A%0A`;
+            let whatsappMessage = `*New Car Rental Query from Radhe Car Rental Website*%0A%0A`;
             whatsappMessage += `*Selected Vehicle:* ${selectedCar}%0A`;
             whatsappMessage += `*Pickup Location:* ${pickupLocation}%0A`;
             whatsappMessage += `*Rental Period:* ${startDate} to ${endDate}%0A`;
@@ -869,7 +939,7 @@
             whatsappMessage += `*Email:* ${email}%0A`;
             whatsappMessage += `*Phone:* ${phone}%0A`;
             whatsappMessage += `*Special Requests:* ${message}%0A%0A`;
-            whatsappMessage += `_This message was sent from the GEARSHIFT booking form_`;
+            whatsappMessage += `_This message was sent from the Radhe Car Rental booking form_`;
             
             // Create WhatsApp link
             const whatsappLink = `https://wa.me/919328346822?text=${whatsappMessage}`;
