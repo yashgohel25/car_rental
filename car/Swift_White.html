@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>radhe car rental</title>
+  <title>Radhe Car Rental | Maruti Suzuki Swift</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* Reset and base styles */
@@ -470,26 +470,69 @@
     .no-js .thumbnail.active {
       border-color: var(--secondary);
     }
+        .loading-buffer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+    
+    .loading-buffer.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #ff6b13;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    .loading-buffer p {
+      font-size: 18px;
+      color: #333;
+      font-weight: 600;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
   </style>
 </head>
 <body>
+    <!-- Loading Buffer -->
+  <div class="loading-buffer" id="loadingBuffer">
+    <div class="loader"></div>
+    <p>Loading Radhe Car Rental...</p>
+  </div>
   <!-- Updated Header from index.html -->
   <header>
     <nav aria-label="Primary navigation">
-      <a href="#" class="logo" aria-label="GearShift Home">
-        <svg aria-hidden="true" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 0A32 32 0 1064 32 32.036 32.036 0 0032 0zm0 58A26 26 0 1158 32 26.029 26.029 0 0132 58z"/><path d="M32 16a16 16 0 1016 16A16.018 16.018 0 0032 16zm0 28a12 12 0 1112-12 12.013 12.013 0 01-12 12z"/></svg>
-        <span>radhe travels</span>
-      </a>
-      
+      <a href="#" class="logo" aria-label="Radhe Car Rental Home">
+        <span>Radhe Car Rental</span>
+      </a> 
       <button class="menu-toggle" aria-label="Toggle menu">☰</button>
       
       <ul role="list" aria-label="Main Navigation Menu">
-        <li><a href="../index.html" class="active" aria-current="page">HOME</a></li>
+        <li><a href="../index.html">HOME</a></li>
         <li><a href="../index2.html">ABOUT US</a></li>
-        <li><a href="">POLICY</a></li>
+        <li><a href="../index3.html">POLICY</a></li>
         <li><a href="../index4.html">CONTACT US</a></li>
         <li><a href="../index5.html"><button class="btn-rent" aria-label="Rent a vehicle now">RENT NOW</button></a></li>
-
       </ul>
     </nav>
   </header>
@@ -502,36 +545,35 @@
       <div class="car-image-container" id="main-car-image"></div>
       
       <div class="car-thumbnails">
-        <div class="thumbnail active"   data-image="car_image/swift\(white\)1.jpg" style="background-image: url('car_image/swift\(white\)1.jpg')">
+        <div class="thumbnail active" data-image="car_image/swift\(white\)1.jpg" style="background-image: url('car_image/swift\(white\)1.jpg')">
         </div>
-        <div class="thumbnail"          data-image="car_image/swift\(white\)2.jpg" style="background-image: url('car_image/swift\(white\)2.jpg')">
+        <div class="thumbnail" data-image="car_image/swift\(white\)2.jpg" style="background-image: url('car_image/swift\(white\)2.jpg')">
         </div>
-        <div class="thumbnail"          data-image="car_image/swift\(white\)3.jpg" style="background-image: url('car_image/swift\(white\)3.jpg')">
+        <div class="thumbnail" data-image="car_image/swift\(white\)3.jpg" style="background-image: url('car_image/swift\(white\)3.jpg')">
         </div>
-        <div class="thumbnail"          data-image="car_image/swift\(white\)4.jpg" style="background-image: url('car_image/swift\(white\)4.jpg')">
+        <div class="thumbnail" data-image="car_image/swift\(white\)4.jpg" style="background-image: url('car_image/swift\(white\)4.jpg')">
         </div>
       </div>
       
       <div class="enquiry-card">
         <div class="enquiry-price">
-          IND <strong>2500</strong> / Day
+          INR <strong>2,500</strong> / Day
         </div>
         
         <h3>Interested in Renting This Car?</h3>
         
-<button class="btn-submit" onclick="window.location.href='Swift_White_enquiry.html'">
-  SUBMIT AN ENQUIRY
-</button>
-
+        <button class="btn-submit" onclick="window.location.href='Swift_White_enquiry.html'">
+          SUBMIT AN ENQUIRY
+        </button>
         
         <div class="contact-info">
           <p>
             <i class="fas fa-envelope"></i>
-            info@gearshift.de
+            info@radhetravels.com
           </p>
           <p>
             <i class="fas fa-phone"></i>
-            +971 12 345 6789
+            +91 12345 67890
           </p>
         </div>
       </div>
@@ -539,19 +581,19 @@
     
     <!-- Right Column -->
     <div class="right-col">
-      <h1 class="car-title">Swift White</h1>
+      <h1 class="car-title">Maruti Suzuki Swift (White)</h1>
       
       <div class="tags">
         <span class="tag">Swift</span>
-        <span class="tag">automatic</span>
-        <span class="tag">5 Seater </span>
-        <span class="tag">4 Baggage</span>
+        <span class="tag">Automatic</span>
+        <span class="tag">5 Seater</span>
+        <span class="tag">4 Bags</span>
         <span class="tag">2025</span>
-        <span class="tag">Micro </span>
+        <span class="tag">Hatchback</span>
       </div>
       
       <p class="description">
-       The Maruti Suzuki Swift Petrol Automatic is a compact hatchback that blends sporty design with everyday practicality. Powered by a 1.2L petrol engine paired with an AMT gearbox, it delivers smooth city driving and impressive fuel efficiency of up to 30 km/l
+        The Maruti Suzuki Swift Petrol Automatic is a compact hatchback that blends sporty design with everyday practicality. Powered by a 1.2L petrol engine paired with an AMT gearbox, it delivers smooth city driving and impressive fuel efficiency of up to 30 km/l.
       </p>
       
       <div class="specifications">
@@ -560,7 +602,7 @@
         <div class="spec-list">
           <div class="spec-item">
             <span>Mileage</span>
-            <span>30</span>
+            <span>30 km/l</span>
           </div>
           <div class="spec-item">
             <span>Transmission</span>
@@ -571,8 +613,8 @@
             <span>5</span>
           </div>
           <div class="spec-item">
-            <span>Baggage 💼</span>
-            <span>4</span>
+            <span>Luggage Capacity</span>
+            <span>4 Bags</span>
           </div>
           <div class="spec-item">
             <span>Year</span>
@@ -580,15 +622,15 @@
           </div>
           <div class="spec-item">
             <span>Type</span>
-            <span>SUV</span>
+            <span>Hatchback</span>
           </div>
           <div class="spec-item">
             <span>Brand</span>
-            <span>Swift</span>
+            <span>Maruti Suzuki</span>
           </div>
           <div class="spec-item">
             <span>Location</span>
-            <span>ahmedabad</span>
+            <span>Ahmedabad</span>
           </div>
         </div>
       </div>
@@ -599,23 +641,23 @@
         <div class="features-list">
           <div class="feature-item">
             <i class="fab fa-bluetooth-b"></i>
-            <span>Bluetooth connectivity</span>
+            <span>Bluetooth Connectivity</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-car"></i>
-            <span>Parking sensors (front/rear)</span>
+            <span>Parking Sensors (Front/Rear)</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-camera"></i>
-            <span>Rearview camera</span>
+            <span>Rearview Camera</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-key"></i>
-            <span>Keyless entry & push-button start</span>
+            <span>Keyless Entry & Push-Button Start</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-snowflake"></i>
-            <span>Air conditioning / climate control</span>
+            <span>Air Conditioning / Climate Control</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-exclamation-triangle"></i>
@@ -623,47 +665,47 @@
           </div>
           <div class="feature-item">
             <i class="fas fa-window-restore"></i>
-            <span>Power windows and mirrors</span>
+            <span>Power Windows and Mirrors</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-mobile-alt"></i>
-            <span>USB ports & smartphone integration (Apple CarPlay / Android Auto)</span>
+            <span>USB Ports & Smartphone Integration (Apple CarPlay / Android Auto)</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-sliders-h"></i>
-            <span>Steering-mounted controls</span>
+            <span>Steering-Mounted Controls</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-lightbulb"></i>
-            <span>LED headlights / DRLs</span>
+            <span>LED Headlights / DRLs</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-lock"></i>
-            <span>Central locking system</span>
+            <span>Central Locking System</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-chair"></i>
-            <span>Adjustable driver seat</span>
+            <span>Adjustable Driver Seat</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-coffee"></i>
-            <span>Armrests with cup holders</span>
+            <span>Armrests With Cup Holders</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-lightbulb"></i>
-            <span>Ambient lighting</span>
+            <span>Ambient Lighting</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-shield-alt"></i>
-            <span>Multiple airbags (front, side, curtain)</span>
+            <span>Multiple Airbags (Front, Side, Curtain)</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-map-marked-alt"></i>
-            <span>Navigation system</span>
+            <span>Navigation System</span>
           </div>
           <div class="feature-item">
             <i class="fas fa-microphone-alt"></i>
-            <span>Voice commands</span>
+            <span>Voice Commands</span>
           </div>
         </div>
       </div>
@@ -679,20 +721,20 @@
           </div>
           
           <div class="input-group">
-            <label for="efficiency">Fuel Efficiency (km/l)(PETROL)</label>
+            <label for="efficiency">Fuel Efficiency (km/l, Petrol)</label>
             <input type="number" id="efficiency" min="1" value="30" readonly placeholder="km/l">
           </div>
           
           <div class="input-group">
-            <label for="price">Fuel Price (IND/liter)</label>
-            <input type="number" id="price" min="0.1" step="0.1" value="100"  placeholder="Price per liter">
+            <label for="price">Fuel Price (INR/liter)</label>
+            <input type="number" id="price" min="0.1" step="0.1" value="100" placeholder="Price per liter">
           </div>
           
           <button id="calculate-fuel" class="btn-submit">CALCULATE</button>
         </div>
         
         <div id="fuel-result" class="result-display">
-          <p>Estimated fuel cost: <span class="result-value">--</span> IND</p>
+          <p>Estimated Fuel Cost: <span class="result-value">--</span> INR</p>
         </div>
       </div>
     </div>
@@ -700,10 +742,33 @@
   
   <!-- Footer -->
   <footer>
-    <p>&copy; 2024 radhe. All rights reserved.</p>
+    <p>&copy; 2024 Radhe Car Rental. All Rights Reserved.</p>
   </footer>
   
   <script>
+    // Show loading buffer initially
+    const loadingBuffer = document.getElementById('loadingBuffer');
+    
+    // Hide loading buffer when page is fully loaded
+    window.addEventListener('load', function() {
+      // Add a small delay for a smoother transition
+      setTimeout(function() {
+        loadingBuffer.classList.add('hidden');
+        
+        // Remove from DOM after animation completes to improve performance
+        setTimeout(function() {
+          loadingBuffer.style.display = 'none';
+        }, 500);
+      }, 500);
+    });
+    
+    // Also hide loading buffer if there's an error
+    window.addEventListener('error', function() {
+      loadingBuffer.classList.add('hidden');
+      setTimeout(function() {
+        loadingBuffer.style.display = 'none';
+      }, 500);
+    });
     // Mobile menu toggle
     document.querySelector('.menu-toggle').addEventListener('click', function() {
       const menu = document.querySelector('nav ul');
