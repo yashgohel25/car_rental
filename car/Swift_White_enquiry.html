@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crete Car Rentals</title>
+    <title>Maruti Suzuki Swift (White) Car Rentals</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset and base styles */
@@ -565,20 +565,68 @@
             margin-right: 10px;
             font-size: 1.2rem;
         }
+
+        /* Loading Buffer Styles */
+        .loading-buffer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+        
+        .loading-buffer.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #ff6b13;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        .loading-buffer p {
+            font-size: 18px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
+    <!-- Loading Buffer -->
+    <div class="loading-buffer" id="loadingBuffer">
+        <div class="loader"></div>
+        <p>Loading Radhe Car Rental...</p>
+    </div>
+
     <!-- Header -->
     <header>
-                <nav aria-label="Primary navigation">
-            <a href="#" class="logo" aria-label="GearShift Home">
+        <nav aria-label="Primary navigation">
+            <a href="#" class="logo" aria-label="Radhe Car Rental Home">
                 <span>Radhe Car Rental</span>
             </a>
             
             <button class="menu-toggle" aria-label="Toggle menu">☰</button>
             
             <ul role="list" aria-label="Main Navigation Menu">
-                <li><a href="../index.html" >HOME</a></li>
+                <li><a href="../index.html">HOME</a></li>
                 <li><a href="../index2.html">ABOUT US</a></li>
                 <li><a href="">POLICY</a></li>
                 <li><a href="../index4.html">CONTACT US</a></li>
@@ -596,7 +644,7 @@
                     <h1>Radhe Car Rental</h1>
                 </div>
                 <h2> Car Rentals</h2>
-                <p>Get behind the wheel of a reliable SUV or mid-size car without breaking the bank..</p>
+                <p>Get behind the wheel of a reliable SUV or mid-size car without breaking the bank.</p>
                 
                 <div class="contact-details">
                     <div class="contact-item">
@@ -604,7 +652,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-text">
-                            <h3>Our Locations</h3>
+                            <h3>Our Location</h3>
                             <p>Ahmedabad</p>
                         </div>
                     </div>
@@ -615,7 +663,7 @@
                         </div>
                         <div class="contact-text">
                             <h3>Email</h3>
-                            <p>info@gearshift.ce</p>
+                            <p>radhecarrentals@gmail.com</p>
                         </div>
                     </div>
                     
@@ -625,7 +673,7 @@
                         </div>
                         <div class="contact-text">
                             <h3>Phone</h3>
-                            <p>+91 98765 43210</p>
+                            <p>+91 78743 74343</p>
                         </div>
                     </div> 
                 </div>
@@ -634,6 +682,7 @@
                 <div class="form-header">
                     <h2>Book Your Car</h2>
                     <p>Fill out the form below to reserve your vehicle</p>
+                    <p style="color: red;">This is an enquiry page, not a confirmation page. Your enquiry will be sent via WhatsApp, and we will contact you soon to begin the confirmation process.</p>
                 </div>
     
                 <form id="booking-form">
@@ -643,7 +692,9 @@
                             <label for="pickup-location">Pickup Location</label>
                             <div class="input-with-icon">
                                 <i class="fas fa-map-marker-alt input-icon"></i>
-                                <div class="readonly-field" id="pickup-location">Ahmedabad</div>
+                                <div class="readonly-field" id="pickup-location">
+                                    Ahmedabad
+                                </div>
                             </div>
                         </div>
                         
@@ -653,7 +704,7 @@
                             <div class="input-with-icon">
                                 <i class="fas fa-car input-icon"></i>
                                 <div class="readonly-field" id="car-selection">
-                                    <span class="car-selected">Swift White</span>
+                                    <span class="car-selected">Maruti Swift White</span>
                                 </div>
                             </div>
                         </div>
@@ -675,7 +726,7 @@
                         
                         <!-- State Input (changed from dropdown) -->
                         <div class="form-group">
-                            <label for="state">Which state are you going to?</label>
+                            <label for="state">Which state are you traveling to?</label>
                             <div class="input-with-icon">
                                 <i class="fas fa-map input-icon"></i>
                                 <input type="text" id="state" placeholder="Enter state name" required>
@@ -684,7 +735,7 @@
                         
                         <!-- City Input (changed from dropdown) -->
                         <div class="form-group">
-                            <label for="city">Which city are you going to?</label>
+                            <label for="city">Which city are you traveling to?</label>
                             <div class="input-with-icon">
                                 <i class="fas fa-city input-icon"></i>
                                 <input type="text" id="city" placeholder="Enter city name" required>
@@ -730,7 +781,7 @@
                             <label for="message">Special Requests</label>
                             <div class="input-with-icon">
                                 <i class="fas fa-comment input-icon"></i>
-                                <textarea id="message" placeholder="Any special requirements or additional information..." ></textarea>
+                                <textarea id="message" placeholder="Any special requirements or additional information..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -745,7 +796,7 @@
     
     <!-- Footer -->
     <footer>
-        &copy; 2023 Radhe  Car Rentals. All rights reserved.
+        &copy; 2023 Radhe Car Rental. All rights reserved.
     </footer>
 
     <!-- Success message -->
@@ -755,6 +806,22 @@
     </div>
 
     <script>
+        // Show loading buffer initially
+        const loadingBuffer = document.getElementById('loadingBuffer');
+        
+        // Hide loading buffer when page is fully loaded
+        window.addEventListener('load', function() {
+            // Add a small delay for a smoother transition
+            setTimeout(function() {
+                loadingBuffer.classList.add('hidden');
+                
+                // Remove from DOM after animation completes to improve performance
+                setTimeout(function() {
+                    loadingBuffer.style.display = 'none';
+                }, 500);
+            }, 500);
+        });
+
         // Mobile menu toggle
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             const menu = document.querySelector('nav ul');
@@ -789,7 +856,7 @@
             const message = document.getElementById('message').value;
             
             // Format WhatsApp message
-            let whatsappMessage = `*New Car Rental Query from radhe car rental Website*%0A%0A`;
+            let whatsappMessage = `*New Car Rental Query from Radhe Car Rental Website*%0A%0A`;
             whatsappMessage += `*Selected Vehicle:* ${selectedCar}%0A`;
             whatsappMessage += `*Pickup Location:* ${pickupLocation}%0A`;
             whatsappMessage += `*Rental Period:* ${startDate} to ${endDate}%0A`;
@@ -799,7 +866,7 @@
             whatsappMessage += `*Email:* ${email}%0A`;
             whatsappMessage += `*Phone:* ${phone}%0A`;
             whatsappMessage += `*Special Requests:* ${message}%0A%0A`;
-            whatsappMessage += `_This message was sent from the radhe car rental booking form_`;
+            whatsappMessage += `_This message was sent from the Radhe Car Rental booking form_`;
             
             // Create WhatsApp link
             const whatsappLink = `https://wa.me/919328346822?text=${whatsappMessage}`;
