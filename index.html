@@ -953,6 +953,67 @@
       .car-card.animate-on-scroll:nth-child(5) { transition-delay: 0.25s; }
       .car-card.animate-on-scroll:nth-child(6) { transition-delay: 0.3s; }
     }
+    .cookie-consent {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      left: 20px;
+      background: #1c1c1c;
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      display: none;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .cookie-consent.visible {
+      display: block;
+      animation: slideUp 0.5s ease-out;
+    }
+    
+    @keyframes slideUp {
+      from {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .cookie-consent p {
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    
+    .cookie-consent-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    
+    .cookie-btn {
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .cookie-btn.accept {
+      background-color: #ff6b13;
+      color: white;
+    }
+    
+    .cookie-btn.reject {
+      background-color: transparent;
+      color: #ddd;
+      border: 1px solid #666;
+    }
   </style>
 </head>
 <body>
@@ -961,7 +1022,13 @@
     <div class="loader"></div>
     <p>Loading Radhe Car Rental...</p>
   </div>
-
+<div class="cookie-consent" id="cookieConsent">
+    <p>We use cookies to enhance your experience and make our website load faster on your next visit. Your data is safe with us and will not be shared with third parties.</p>
+    <div class="cookie-consent-buttons">
+      <button class="cookie-btn reject" id="rejectCookies">Reject</button>
+      <button class="cookie-btn accept" id="acceptCookies">Accept</button>
+    </div>
+  </div>
   <header>
     <nav aria-label="Primary navigation">
       <a href="#" class="logo" aria-label="Radhe Rentals Home">
@@ -1188,6 +1255,95 @@
   </footer>
   
    <script>
+
+     function loadNonCriticalResources() {
+      // These would load after main content for returning visitors
+      // For example: analytics, additional fonts, etc.
+      
+      // Preload images for faster browsing
+      const imagesToPreload = [
+        'myimage/creata1.jpg',
+        'myimage/venu1.jpg',
+        'myimage/swift(white)1.jpg',
+        'myimage/swift(black)1.jpeg',
+        'myimage/Ertiga 1.jpg',
+        'myimage/Taison 1.jpg'
+      ];
+      
+      imagesToPreload.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+    }
+
+    // Show cookie consent banner if needed
+    function showCookieConsent() {
+      const cookiesAccepted = getCookie('cookiesAccepted');
+      
+      if (!cookiesAccepted) {
+        const cookieConsent = document.getElementById('cookieConsent');
+        setTimeout(() => {
+          cookieConsent.classList.add('visible');
+        }, 2000);
+      }
+    }
+
+    // DOM Ready
+    document.addEventListener('DOMContentLoaded', function() {
+      const isFirstVisit = checkFirstVisit();
+      
+      // If it's not the first visit, we've already hidden the loading buffer
+      if (!isFirstVisit) {
+        // Initialize animations and counters immediately
+        initCounterAnimation();
+        initScrollAnimations();
+      }
+      
+      // Show cookie consent if needed
+      showCookieConsent();
+      
+      // Set up cookie consent buttons
+      document.getElementById('acceptCookies').addEventListener('click', function() {
+        setCookie('cookiesAccepted', 'true', 365);
+        setCookie('returningVisitor', 'true', 365);
+        document.getElementById('cookieConsent').classList.remove('visible');
+      });
+      
+      document.getElementById('rejectCookies').addEventListener('click', function() {
+        // Still mark as returning visitor but don't set other cookies
+        setCookie('returningVisitor', 'true', 30);
+        document.getElementById('cookieConsent').classList.remove('visible');
+      });
+      
+      // Rest of your existing DOMContentLoaded code
+      // [Your existing code here]
+    });
+
+    // Modify your existing load event listener
+    window.addEventListener('load', function() {
+      const isFirstVisit = getCookie('returningVisitor') === null;
+      
+      if (isFirstVisit) {
+        // Only show loading buffer animation for first-time visitors
+        setTimeout(function() {
+          const loadingBuffer = document.getElementById('loadingBuffer');
+          loadingBuffer.classList.add('hidden');
+          
+          setTimeout(function() {
+            loadingBuffer.style.display = 'none';
+          }, 500);
+          
+          // Set cookie to mark as returning visitor
+          setCookie('returningVisitor', 'true', 365);
+        }, 800);
+      }
+      
+      // Initialize animations and counters for first-time visitors
+      if (isFirstVisit) {
+        initCounterAnimation();
+        initScrollAnimations();
+      }
+    });
     // Show loading buffer initially
     const loadingBuffer = document.getElementById('loadingBuffer');
     
