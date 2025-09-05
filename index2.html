@@ -407,14 +407,6 @@
     }
     
     /* Custom image size for the two specific images */
-    .about-image {
-      width: 600px;
-      height: 600px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      object-fit: cover;
-    }
     
     /* Responsive */
     @media (max-width: 768px) {
@@ -764,7 +756,45 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+  /* Custom image size for the two specific images - RESPONSIVE VERSION */
+  .about-image {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  /* Container adjustments for better responsive behavior */
+  .journey-image, .founder-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .about-image {
+      max-width: 100%;
+      height: auto;
+      max-height: none; /* Remove the fixed max-height */
+    }
+    
+    /* Adjust the container padding for better spacing */
+    .about-section .section {
+      padding: 32px 20px;
+    }
+  }
 
+  /* For very small screens */
+  @media (max-width: 480px) {
+    .about-image {
+      max-width: 100%;
+    }
+  }
   </style>
 </head>
 <body>
