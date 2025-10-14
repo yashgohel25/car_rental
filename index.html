@@ -151,7 +151,7 @@
         border: none;
         font-weight: 700;
         border-radius: 6px;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
       }
 
       /* Container for responsive content */
@@ -312,17 +312,42 @@
         border-radius: 6px;
       }
 
+      /* IMPROVED: Consistent Call-to-Action Buttons */
+      .btn-primary {
+        background-color: #ff6b13;
+        color: white;
+        padding: 14px 28px;
+        font-weight: 700;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        display: inline-block;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(255, 107, 19, 0.3);
+        border: 2px solid #ff6b13;
+        font-size: 16px;
+      }
+      
+      .btn-primary:hover {
+        background-color: #e55a0f;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255, 107, 19, 0.4);
+      }
+
       .btn-rent {
         background-color: #ff6b13;
         color: white;
-        padding: 10px 20px;
+        padding: 14px 28px;
         font-weight: 700;
-        border-radius: 6px;
-        transition: background-color 0.3s ease;
+        border-radius: 8px;
+        transition: all 0.3s ease;
         z-index: 10;
+        box-shadow: 0 4px 12px rgba(255, 107, 19, 0.3);
+        border: 2px solid #ff6b13;
       }
       .btn-rent:hover {
         background-color: #e55a0f;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255, 107, 19, 0.4);
       }
 
       /* Hero content */
@@ -351,16 +376,20 @@
       .hero-content .btn-view {
         background-color: #ff6b13;
         color: white;
-        border-radius: 6px;
-        padding: 12px 28px;
+        border-radius: 8px;
+        padding: 14px 32px;
         font-weight: 700;
-        font-size: 14px;
+        font-size: 16px;
         letter-spacing: 0.05em;
         border: none;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(255, 107, 19, 0.3);
+        border: 2px solid #ff6b13;
       }
       .hero-content .btn-view:hover {
         background-color: #e55a0f;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255, 107, 19, 0.4);
       }
 
       /* --- STATISTICS SECTION --- */
@@ -411,17 +440,21 @@
       }
       .btn-show-all {
         background-color: #ff6b13;
-        border-radius: 6px;
-        padding: 10px 22px;
+        border-radius: 8px;
+        padding: 14px 28px;
         font-weight: 700;
-        font-size: 14px;
+        font-size: 16px;
         color: white;
         border: none;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(255, 107, 19, 0.3);
+        border: 2px solid #ff6b13;
       }
       .btn-show-all:hover {
         background-color: #e55a0f;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255, 107, 19, 0.4);
       }
 
       .car-cards {
@@ -526,18 +559,22 @@
       .btn-details {
         background-color: #ff6b13;
         color: white;
-        padding: 10px 8px;
+        padding: 14px 8px;
         border-radius: 8px;
-        font-weight: 600;
-        font-size: 14px;
+        font-weight: 700;
+        font-size: 16px;
         text-align: center;
         width: 100%;
         border: none;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
         margin-top: 15px;
+        box-shadow: 0 4px 12px rgba(255, 107, 19, 0.3);
+        border: 2px solid #ff6b13;
       }
       .btn-details:hover {
         background-color: #e55a0f;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255, 107, 19, 0.4);
       }
 
       /* --- LOCATIONS --- */
@@ -761,7 +798,7 @@
         background-color: #ff6b13;
         color: white;
         width: 100%;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 14px;
         padding: 12px 0;
         border-radius: 6px;
@@ -1447,7 +1484,7 @@
       }
 
       // Counting animation for statistics
-      function animateCounter(element, target, duration = 1000) {
+      function animateCounter(element, target, duration = 1500) {
         let startTime = null;
         const startValue = 0;
         const suffix = element.textContent.includes('+') ? '+' : '';
@@ -1484,7 +1521,7 @@
               // Animate all numbers simultaneously
               statNumbers.forEach(numberElement => {
                 const target = parseInt(numberElement.getAttribute('data-target'));
-                animateCounter(numberElement, target, 1200); // Fast animation (1200ms)
+                animateCounter(numberElement, target, 1500);
               });
               
               // Stop observing after animation
