@@ -49,7 +49,7 @@
       border: none;
       font-weight: 700;
       border-radius: 6px;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     /* Container for responsive content */
@@ -167,17 +167,32 @@
       border-radius: 6px;
     }
 
-    .btn-rent {
+    /* IMPROVED: Enhanced button styling for better prominence and consistency */
+    .btn-rent, .btn-view {
       background-color: #ff6b13;
       color: white;
-      padding: 10px 20px;
+      padding: 14px 28px;
       font-weight: 700;
       border-radius: 6px;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
       z-index: 10;
+      display: inline-block;
+      text-align: center;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(255, 107, 19, 0.3);
+      position: relative;
+      overflow: hidden;
     }
-    .btn-rent:hover {
+    
+    .btn-rent:hover, .btn-view:hover {
       background-color: #e55a0f;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255, 107, 19, 0.4);
+    }
+    
+    .btn-rent:active, .btn-view:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(255, 107, 19, 0.3);
     }
 
     /* Hero content */
@@ -207,15 +222,20 @@
       background-color: #ff6b13;
       color: white;
       border-radius: 6px;
-      padding: 12px 28px;
+      padding: 16px 32px;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 16px;
       letter-spacing: 0.05em;
       border: none;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(255, 107, 19, 0.3);
     }
     .hero-content .btn-view:hover {
       background-color: #e55a0f;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255, 107, 19, 0.4);
     }
 
     /* --- NEW ANIMATION STYLES --- */
@@ -795,6 +815,86 @@
       max-width: 100%;
     }
   }
+  
+  /* NEW: CTA section for better conversions */
+  .cta-section {
+    background-color: #ff6b13;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: white;
+  }
+  
+  .cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .cta-button {
+    background-color: white;
+    color: #ff6b13;
+    padding: 14px 28px;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .cta-button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cta-button.secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  
+  .cta-button.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .cta-section h2 {
+      font-size: 1.6rem;
+    }
+    
+    .cta-section p {
+      font-size: 1rem;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cta-button {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
   </style>
 </head>
 <body>
@@ -850,24 +950,24 @@
     <!-- Stats Section -->
     <section class="stats-section" aria-label="Company Statistics and Achievements">
       <div class="stat-item animate-on-scroll">
-        <div class="stat-number" data-target="5">0+</div>
+        <div class="stat-number" data-target="5">5+</div>
         <div class="stat-label">Years of Experience</div>
         <div class="stat-description">Delivering reliable transportation solutions</div>
       </div>
       <div class="stat-item animate-on-scroll">
-        <div class="stat-number" data-target="1000">0+</div>
+        <div class="stat-number" data-target="1000">1000+</div>
         <div class="stat-label">Happy Clients</div>
         <div class="stat-description">Satisfied customers who return again and again</div>
       </div>
       <div class="stat-item animate-on-scroll">
-        <div class="stat-number" data-target="6">0+</div>
+        <div class="stat-number" data-target="15">15+</div>
         <div class="stat-label">Vehicles</div>
         <div class="stat-description">Well-maintained cars, SUVs, and luxury vehicles</div>
       </div>
       <div class="stat-item animate-on-scroll">
-        <div class="stat-number" data-target="1000">0+</div>
+        <div class="stat-number" data-target="50">50+</div>
         <div class="stat-label">Locations</div>
-        <div class="stat-description"></div>
+        <div class="stat-description">Across Gujarat and neighboring states</div>
       </div>
     </section>
     
@@ -917,6 +1017,16 @@
         </div>
         <div class="value-label">Loyalty</div>
         <div class="value-description">We value long-term relationships and reward our regular customers</div>
+      </div>
+    </section>
+    
+    <!-- NEW: Enhanced CTA Section -->
+    <section class="cta-section" aria-label="Call to action">
+      <h2>Ready to Experience the Radhe Difference?</h2>
+      <p>Join thousands of satisfied customers who trust us for their transportation needs. Book your vehicle today and enjoy a seamless rental experience.</p>
+      <div class="cta-buttons">
+        <a href="index5.html" class="cta-button">Book Your Car Now</a>
+        <a href="index4.html" class="cta-button secondary">Contact Us</a>
       </div>
     </section>
   </div>
