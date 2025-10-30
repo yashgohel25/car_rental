@@ -1,130 +1,132 @@
-<?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Main Pages -->
     <url>
         <loc>https://radhecarrental.vercel.app/</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
-    
+
     <url>
         <loc>https://radhecarrental.vercel.app/index.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
-    
+
     <url>
         <loc>https://radhecarrental.vercel.app/index2.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
+
     <url>
         <loc>https://radhecarrental.vercel.app/index3.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
+
     <url>
         <loc>https://radhecarrental.vercel.app/index4.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
+
     <url>
         <loc>https://radhecarrental.vercel.app/index5.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
-    <!-- Car Pages -->
     <url>
         <loc>https://radhecarrental.vercel.app/car/Creta.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-    
+
     <url>
         <loc>https://radhecarrental.vercel.app/car/Venue.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-    
+
     <url>
         <loc>https://radhecarrental.vercel.app/car/Swift_White.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-    
+
     <url>
         <loc>https://radhecarrental.vercel.app/car/Swift_Black.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-    
+
     <url>
         <loc>https://radhecarrental.vercel.app/car/Ertiga.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-    
+
     <url>
         <loc>https://radhecarrental.vercel.app/car/Taison.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+
     
-    <!-- Enquiry Pages -->
     <url>
-        <loc>https://radhecarrental.vercel.app/car/Creta_enquiry.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <loc>https://radhecarrental.vercel.app/car/Creta_Enquiry.html</loc>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
-    
+
     <url>
-        <loc>https://radhecarrental.vercel.app/car/venue_enquiry.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <loc>https://radhecarrental.vercel.app/car/Venue_Enquiry.html</loc>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
-    
+
     <url>
-        <loc>https://radhecarrental.vercel.app/car/Swift_White_enquiry.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <loc>https://radhecarrental.vercel.app/car/Swift_White_Enquiry.html</loc>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
-    
+
     <url>
-        <loc>https://radhecarrental.vercel.app/car/Swift_Black_enquiry.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <loc>https://radhecarrental.vercel.app/car/Swift_Black_Enquiry.html</loc>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
-    
+
     <url>
         <loc>https://radhecarrental.vercel.app/car/Ertiga_Enquiry.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
-    
+
     <url>
-        <loc>https://radhecarrental.vercel.app/car/Taison_enquiry.html</loc>
-        <lastmod>2025-02-07</lastmod>
+        <loc>https://radhecarrental.vercel.app/car/Taison_Enquiry.html</loc>
+        <lastmod>2025-10-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
+
 </urlset>
