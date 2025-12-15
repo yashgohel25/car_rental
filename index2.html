@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Best Car Rental in Ahmedabad | Radhe Rentals | Affordable & Reliable</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+      background-color: #fff;
+      color: #222;
+    }
+    body {
+      line-height: 1.5;
+      font-size: 16px;
+      background-color: #fff;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      font-weight: 700;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    /* Container for responsive content */
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --- HEADER & NAV --- */
+    header {
+      position: relative;
+      background: url("https://newcarimage.b-cdn.net/myimage/sport-car-with-black-white-autotuning-driving-forest.jpg") center/cover no-repeat;
+      color: #fff;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0 5% 48px;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+      border-radius: 0 0 35% 35% / 120px 120px 0 0;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0 0 0;
+      z-index: 10;
+      position: relative;
+      font-weight: 700;
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      z-index: 10;
+    }
+    nav .logo svg {
+      height: 26px;
+      width: 26px;
+      fill: #ff6b13;
+    }
+    nav .logo span {
+      color: #fff;
+      letter-spacing: 2px;
+    }
+
+    /* Mobile Menu Button */
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 28px;
+      z-index: 100;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      color: #eee;
+      padding: 4px 0;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ff6b13;
+    }
+    nav ul li .dropdown {
+      display: none;
+      position: absolute;
+      top: 32px;
+      left: 0;
+      background: #222;
+      border-radius: 6px;
+      min-width: 160px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.4);
+      z-index: 15;
+      font-weight: 500;
+      font-size: 13px;
+    }
+    nav ul li:hover .dropdown {
+      display: block;
+    }
+    nav ul li .dropdown a {
+      display: block;
+      padding: 8px 14px;
+      color: #eee;
+      white-space: nowrap;
+    }
+    nav ul li .dropdown a:hover {
+      background-color: #ff6b13;
+      color: white;
+      border-radius: 6px;
+    }
+
+    /* IMPROVED: Enhanced button styling for better prominence and consistency */
+    .btn-rent, .btn-view {
+      background-color: #ff6b13;
+      color: white;
+      padding: 14px 28px;
+      font-weight: 700;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      z-index: 10;
+      display: inline-block;
+      text-align: center;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(255, 107, 19, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-rent:hover, .btn-view:hover {
+      background-color: #e55a0f;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255, 107, 19, 0.4);
+    }
+    
+    .btn-rent:active, .btn-view:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(255, 107, 19, 0.3);
+    }
+
+    /* Hero content */
+    .hero-content {
+      max-width: 440px;
+      position: relative;
+      z-index: 5;
+      margin-top: 150px;
+    }
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: white;
+      margin-bottom: 14px;
+    }
+    .hero-content h1 .highlight {
+      color: #ff6b13;
+    }
+    .hero-content p {
+      font-size: 1rem;
+      color: #ddd;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .hero-content .btn-view {
+      background-color: #ff6b13;
+      color: white;
+      border-radius: 6px;
+      padding: 16px 32px;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      border: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(255, 107, 19, 0.3);
+    }
+    .hero-content .btn-view:hover {
+      background-color: #e55a0f;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255, 107, 19, 0.4);
+    }
+
+    /* --- NEW ANIMATION STYLES --- */
+    /* Fade-in and zoom animation */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Specific animations for different elements */
+    .journey-text.animate-on-scroll,
+    .founder-text.animate-on-scroll {
+      transform: translateY(30px) scale(0.95);
+    }
+
+    .journey-image.animate-on-scroll,
+    .founder-image.animate-on-scroll {
+      transform: translateY(30px) scale(0.9);
+    }
+
+    .stat-item.animate-on-scroll,
+    .value-item.animate-on-scroll {
+      transform: translateY(30px) scale(0.9);
+    }
+
+    /* Stagger animation for stats and values */
+    .stat-item.animate-on-scroll:nth-child(1) { transition-delay: 0.1s; }
+    .stat-item.animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
+    .stat-item.animate-on-scroll:nth-child(3) { transition-delay: 0.3s; }
+    .stat-item.animate-on-scroll:nth-child(4) { transition-delay: 0.4s; }
+    
+    .value-item.animate-on-scroll:nth-child(1) { transition-delay: 0.1s; }
+    .value-item.animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
+    .value-item.animate-on-scroll:nth-child(3) { transition-delay: 0.3s; }
+    .value-item.animate-on-scroll:nth-child(4) { transition-delay: 0.4s; }
+
+    /* Hero content animation */
+    .hero-content {
+      animation: heroFadeIn 1.5s ease-out forwards;
+    }
+
+    @keyframes heroFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* --- ABOUT US CONTENT --- */
+    /* Reset & basics */
+    .about-section * {
+      box-sizing: border-box;
+    }
+    .about-section h2 {
+      font-weight: 700;
+      color: #111;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+    }
+    .about-section p {
+      margin-top: 0;
+      margin-bottom: 1.25rem;
+      color: #666;
+      font-size: 0.95rem;
+      max-width: 480px;
+    }
+    /* Section Container */
+    .about-section .section {
+      max-width: 1080px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 48px 20px 48px;
+    }
+    /* Flex utility for two column */
+    .about-section .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
+    .about-section .flex-row > div {
+      flex: 1 1 320px;
+      min-width: 280px;
+    }
+    
+    /* -------- First Section -------- */
+    .about-section .journey-section {
+      gap: 52px;
+    }
+    .about-section .journey-text {
+      max-width: 480px;
+    }
+    
+    /* -------- Stats Section -------- */
+    .about-section .stats-section {
+      background-color: #f6f6f6;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      text-align: center;
+    }
+    .about-section .stat-item {
+      flex: 1 1 160px;
+      max-width: 180px;
+      font-size: 0.9rem;
+    }
+    .about-section .stat-item .stat-number {
+      color: #ff6b1a;
+      font-weight: 700;
+      font-size: 1.7rem;
+      margin-bottom: 0.25rem;
+    }
+    .about-section .stat-item .stat-label {
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #222;
+    }
+    .about-section .stat-item .stat-description {
+      color: #666;
+      font-weight: 400;
+      font-size: 0.85rem;
+    }
+    
+    /* -------- Founder Section -------- */
+    .about-section .founder-section {
+      gap: 52px;
+      background-color: #fff;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+    .about-section .founder-text {
+      max-width: 480px;
+    }
+    
+    /* -------- Values Section -------- */
+    .about-section .values-section {
+      background-color: #f6f6f6;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      text-align: center;
+    }
+    .about-section .value-item {
+      flex: 1 1 140px;
+      max-width: 160px;
+      font-size: 0.9rem;
+    }
+    .about-section .icon-circle {
+      background-color: #ff6b1a;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 12px auto;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+    .about-section .icon-circle svg {
+      fill: #fff;
+      width: 28px;
+      height: 28px;
+    }
+    .about-section .value-label {
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #222;
+    }
+    .about-section .value-description {
+      color: #666;
+      font-weight: 400;
+      font-size: 0.85rem;
+    }
+    
+    /* Custom image size for the two specific images */
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-section .flex-row {
+        flex-direction: column;
+        gap: 32px;
+      }
+      .about-section .stat-item, 
+      .about-section .value-item {
+        max-width: none;
+        flex: none;
+        width: 100%;
+      }
+      
+      /* Mobile-specific animation adjustments */
+      .journey-text.animate-on-scroll,
+      .founder-text.animate-on-scroll,
+      .journey-image.animate-on-scroll,
+      .founder-image.animate-on-scroll {
+        transform: translateY(20px) scale(0.95);
+      }
+      
+      .stat-item.animate-on-scroll,
+      .value-item.animate-on-scroll {
+        transform: translateY(20px) scale(0.95);
+      }
+      
+      /* Reduce transition delays on mobile for faster sequencing */
+      .stat-item.animate-on-scroll:nth-child(1) { transition-delay: 0.05s; }
+      .stat-item.animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+      .stat-item.animate-on-scroll:nth-child(3) { transition-delay: 0.15s; }
+      .stat-item.animate-on-scroll:nth-child(4) { transition-delay: 0.2s; }
+      
+      .value-item.animate-on-scroll:nth-child(1) { transition-delay: 0.05s; }
+      .value-item.animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+      .value-item.animate-on-scroll:nth-child(3) { transition-delay: 0.15s; }
+      .value-item.animate-on-scroll:nth-child(4) { transition-delay: 0.2s; }
+      
+      /* Adjust image size on mobile */
+      .about-image {
+        width: 100%;
+        max-width: 353px;
+        height: auto;
+        max-height: 235px;
+      }
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: #1c1c1c;
+      color: #dadada;
+      font-size: 14px;
+      padding: 48px 5% 24px;
+    }
+    footer .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #3c3c3c;
+    }
+    footer .footer-logo {
+      flex: 1 1 280px;
+    }
+    footer .footer-logo h3 {
+      font-weight: 700;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    footer .footer-logo h3 svg {
+      fill: #ff6b13;
+      width: 26px;
+      height: 26px;
+    }
+    footer .footer-logo p {
+      color: #9e9e9e;
+      max-width: 280px;
+      font-size: 13px;
+      line-height: 1.4;
+      margin-bottom: 18px;
+      user-select: none;
+    }
+    footer .social-icons {
+      display: flex;
+      gap: 12px;
+    }
+    footer .social-icons a {
+      background-color: #ff6b13;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: background-color 0.3s ease;
+      flex-shrink: 0;
+    }
+    footer .social-icons a:hover {
+      background-color: #e55a0f;
+    }
+    footer .social-icons svg {
+      width: 16px;
+      height: 16px;
+      fill: white;
+    }
+
+    footer .newsletter {
+      flex: 1 1 320px;
+    }
+    footer .newsletter label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: white;
+      user-select: none;
+    }
+    footer .newsletter input[type="email"] {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    footer .newsletter button {
+      background-color: #ff6b13;
+      color: white;
+      width: 100%;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 0;
+      border-radius: 6px;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+    footer .newsletter button:hover {
+      background-color: #e55a0f;
+    }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      font-size: 14px;
+      gap: 40px;
+      color: #b7b7b7;
+      user-select: none;
+    }
+    footer .footer-links > div {
+      min-width: 160px;
+      flex: 1 1 150px;
+    }
+    footer .footer-links h4 {
+      color: white;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    footer .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    footer .footer-links ul li a {
+      color: #b7b7b7;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+    footer .footer-links ul li a:hover {
+      color: #ff6b13;
+    }
+    footer .footer-contact p {
+      margin-bottom: 6px;
+    }
+    footer .footer-contact p:last-child a {
+      color: #ff6b13;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    footer .footer-contact p:last-child a:hover {
+      text-decoration: underline;
+    }
+
+    footer .footer-bottom {
+      text-align: center;
+      color: #666;
+      font-size: 12px;
+      margin-top: 28px;
+      user-select: none;
+    }
+    footer .footer-bottom a {
+      color: #ff6b13;
+      text-decoration: none;
+    }
+    footer .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+    
+    .car-info-icons span img {
+      display: inline-block;
+      margin-right: 4px;
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+      border-radius: 0%;
+    }
+
+    /* --- Responsive Adjustments --- */
+    @media (max-width: 1100px) {
+      header {
+        min-height: 600px;
+      }
+      .hero-content {
+        margin-top: 100px;
+      }
+    }
+    
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        z-index: 99;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      nav .btn-rent {
+        display: block;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        min-height: 500px;
+        padding-bottom: 30px;
+      }
+      
+      .hero-content {
+        margin-top: 80px;
+      }
+      
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .hero-content p {
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header {
+        min-height: 450px;
+      }
+      
+      .hero-content {
+        margin-top: 60px;
+      }
+      
+      .hero-content h1 {
+        font-size: 1.6rem;
+      }
+      
+      .hero-content .btn-view {
+        width: 100%;
+      }
+    }
+    
+    /* Animation for reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-on-scroll {
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+      
+      .hero-content {
+        animation: none;
+      }
+      
+      /* Disable counting animation if user prefers reduced motion */
+      .stat-item .stat-number {
+        transition: none !important;
+      }
+    }
+        .loading-buffer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+    
+    .loading-buffer.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #ff6b13;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    .loading-buffer p {
+      font-size: 18px;
+      color: #333;
+      font-weight: 600;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  /* Custom image size for the two specific images - RESPONSIVE VERSION */
+  .about-image {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  /* Container adjustments for better responsive behavior */
+  .journey-image, .founder-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .about-image {
+      max-width: 100%;
+      height: auto;
+      max-height: none; /* Remove the fixed max-height */
+    }
+    
+    /* Adjust the container padding for better spacing */
+    .about-section .section {
+      padding: 32px 20px;
+    }
+  }
+
+  /* For very small screens */
+  @media (max-width: 480px) {
+    .about-image {
+      max-width: 100%;
+    }
+  }
+  
+  /* NEW: CTA section for better conversions */
+  .cta-section {
+    background-color: #ff6b13;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: white;
+  }
+  
+  .cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .cta-button {
+    background-color: white;
+    color: #ff6b13;
+    padding: 14px 28px;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .cta-button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cta-button.secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  
+  .cta-button.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .cta-section h2 {
+      font-size: 1.6rem;
+    }
+    
+    .cta-section p {
+      font-size: 1rem;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cta-button {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+  </style>
+</head>
+<body>
+  <!-- Loading Buffer -->
+  <div class="loading-buffer" id="loadingBuffer">
+    <div class="loader"></div>
+    <p>Loading Radhe Car Rental...</p>
+  </div>
+  <header>
+    <nav aria-label="Primary navigation">
+      <a href="#" class="logo" aria-label="Radhe Rentals Home">
+        <span>Radhe Car Rental</span>
+      </a>
+      
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      
+      <ul role="list" aria-label="Main Navigation Menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index2.html" class="active" aria-current="page">About Us</a></li>
+        <li><a href="index3.html">Policy</a></li>
+        <li><a href="index4.html">Contact Us</a></li>
+        <li><a href="index5.html"><button class="btn-rent" aria-label="Rent a vehicle now">Rent Now</button></a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content" role="banner" aria-label="Explore the Road Ahead with Radhe Rentals hero section">
+      <h1>Explore the Road Ahead with <span class="highlight">Radhe Car Rental</span></h1>
+      <p>Discover our journey, values, and commitment to exceptional service</p>
+      <a href="index.html"><button class="btn-view" aria-label="View our fleet of cars">View Our Cars</button></a>
+     </div>
+
+  </header>
+
+  <!-- START ABOUT US CONTENT -->
+  <div class="about-section">
+    <!-- Our Journey & Mission Section -->
+    <section class="section journey-section flex-row" aria-labelledby="journey-title">
+      <div class="journey-text animate-on-scroll">
+        <h2 id="journey-title">Our Journey</h2>
+        <p>
+            I am Kamlesh Patel Radhe Tour & Travels began with just 1 vehicles and a vision to transform transportation in Ahmedabad. What started as a small venture serving local businesses has grown into Ahmedabad's most trusted tour & travels service, with a fleet of over 15+ vehicles serving thousands of satisfied customers.
+        </p>
+        <h2>Our Mission</h2>
+        <p>
+          We're committed to making travel accessible, affordable, and enjoyable for everyone. Our mission is to provide well-maintained vehicles with transparent pricing and exceptional customer service, ensuring every journey with Radhe is memorable for all the right reasons.
+        </p>
+      </div>
+      <div class="journey-image animate-on-scroll">
+        <img src="https://newcarimage.b-cdn.net/myimage/IMG_0466.PNG" alt="MR.kalpesh patel" class="about-image">
+      </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats-section" aria-label="Company Statistics and Achievements">
+      <div class="stat-item animate-on-scroll">
+        <div class="stat-number" data-target="5">5+</div>
+        <div class="stat-label">Years of Experience</div>
+        <div class="stat-description">Delivering reliable transportation solutions</div>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <div class="stat-number" data-target="1000">1000+</div>
+        <div class="stat-label">Happy Clients</div>
+        <div class="stat-description">Satisfied customers who return again and again</div>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <div class="stat-number" data-target="15">15+</div>
+        <div class="stat-label">Vehicles</div>
+        <div class="stat-description">Well-maintained cars, SUVs, and luxury vehicles</div>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <div class="stat-number" data-target="50">50+</div>
+        <div class="stat-label">Locations</div>
+        <div class="stat-description">Across Gujarat and neighboring states</div>
+      </div>
+    </section>
+    
+    <!-- Meet Our Founder & Expertise Section -->
+    <section class="section founder-section flex-row" aria-labelledby="founder-title">
+      <div class="founder-image animate-on-scroll">
+        <img src="https://newcarimage.b-cdn.net/myimage/IMG_7213.JPG" alt="Mr. Rajesh Sharma, founder of Radhe Car Rental" class="about-image">
+      </div>
+      <div class="founder-text animate-on-scroll">
+        <h2 id="founder-title">Meet Our Founder</h2>
+        <p>
+          Mr.Milan Patel  started Radhe Car Rental with a vision to solve Ahmedabad's transportation challenges. With over 5+ years in the automotive industry, his passion for vehicles and commitment to customer service form the foundation of our company. "We don't just rent cars; we deliver experiences," he often says.
+        </p>
+        <h2>Leadership &amp; Expertise</h2>
+        <p>
+           Our leadership team combines decades of automotive expertise with hospitality experience. We're constantly innovating to enhance your rental experience through technology while maintaining our core values of reliability, transparency, and personalized service.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Values Section -->
+    <section class="values-section" aria-label="Core company values">
+      <div class="value-item animate-on-scroll">
+        <div class="icon-circle" aria-hidden="true">
+          <i class="fas fa-star fa-lg"></i>
+        </div>
+        <div class="value-label">Excellence</div>
+        <div class="value-description">We maintain the highest standards for our vehicles and customer service</div>
+      </div>
+      <div class="value-item animate-on-scroll">
+        <div class="icon-circle" aria-hidden="true">
+          <i class="fas fa-shield-alt fa-lg"></i>
+        </div>
+        <div class="value-label">Reliability</div>
+        <div class="value-description">You can count on us for punctual service and dependable vehicles</div>
+      </div>
+      <div class="value-item animate-on-scroll">
+        <div class="icon-circle" aria-hidden="true">
+          <i class="fas fa-tag fa-lg"></i>
+        </div>
+        <div class="value-label">Affordability</div>
+        <div class="value-description">Competitive pricing without compromising on quality or safety</div>
+      </div>
+      <div class="value-item animate-on-scroll">
+        <div class="icon-circle" aria-hidden="true">
+          <i class="fas fa-heart fa-lg"></i>
+        </div>
+        <div class="value-label">Loyalty</div>
+        <div class="value-description">We value long-term relationships and reward our regular customers</div>
+      </div>
+    </section>
+    
+    <!-- NEW: Enhanced CTA Section -->
+    <section class="cta-section" aria-label="Call to action">
+      <h2>Ready to Experience the Radhe Difference?</h2>
+      <p>Join thousands of satisfied customers who trust us for their transportation needs. Book your vehicle today and enjoy a seamless rental experience.</p>
+      <div class="cta-buttons">
+        <a href="index5.html" class="cta-button">Book Your Car Now</a>
+        <a href="index4.html" class="cta-button secondary">Contact Us</a>
+      </div>
+    </section>
+  </div>
+  <!-- END ABOUT US CONTENT -->
+
+  <footer aria-label="Page footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <h3 aria-label="Radhe Rentals logo and brand name">
+          Radhe Car Rental
+        </h3>
+        <p>Discover quality vehicles and exceptional service for your journey.</p>
+        <div class="social-icons" role="list" aria-label="Social media links">
+          <a href="https://www.instagram.com/radhe.car.rental.ahmedabad_?igsh=MW1xbjJyeGkyaXByNg%3D%3D&utm_source=qr" aria-label="Instagram" tabindex="0" title="Instagram" rel="noopener"style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);" >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/message/34SA4KPPUDQCE1" aria-label="WhatsApp" tabindex="0" title="WhatsApp" rel="noopener" style="background-color:#25d366;">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-links" role="navigation" aria-label="Footer site navigation">
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="index2.html">About Us</a></li>
+          <li><a href="index3.html">Policy</a></li>
+          <li><a href="index4.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Get In Touch</h4>
+        <p>+91 78743 74343</p>
+        <p>radhecarrentals@gmail.com</p>
+        <p>133- TNTC complex near kanba hospital virat nagar<br />Ahmedabad, Gujarat, India</p>
+      </div>
+    </div>
+    
+
+  </footer>
+  
+  <script>
+
+    const loadingBuffer = document.getElementById('loadingBuffer');
+    
+    // Hide loading buffer when page is fully loaded
+    window.addEventListener('load', function() {
+      // Add a small delay for a smoother transition
+      setTimeout(function() {
+        loadingBuffer.classList.add('hidden');
+        
+        // Remove from DOM after animation completes to improve performance
+        setTimeout(function() {
+          loadingBuffer.style.display = 'none';
+        }, 500);
+      }, 500);
+    });
+    window.addEventListener('error', function() {
+      loadingBuffer.classList.add('hidden');
+      setTimeout(function() {
+        loadingBuffer.style.display = 'none';
+      }, 500);
+    });
+
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      const menu = document.querySelector('nav ul');
+      menu.classList.toggle('show');
+    });
+    
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email').value;
+        if(email && email.includes('@')) {
+          alert('Thank you for subscribing to our newsletter!');
+          document.getElementById('newsletter-email').value = '';
+        } else {
+          alert('Please enter a valid email address.');
+        }
+      });
+    }
+
+    // Counting animation for statistics
+    function animateCounter(element, target, duration = 1000) {
+      let startTime = null;
+      const startValue = 0;
+      const suffix = element.textContent.includes('+') ? '+' : '';
+      
+      function updateCounter(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const currentValue = Math.floor(progress * (target - startValue) + startValue);
+        element.textContent = currentValue + suffix;
+        
+        if (progress < 1) {
+          window.requestAnimationFrame(updateCounter);
+        }
+      }
+      
+      window.requestAnimationFrame(updateCounter);
+    }
+    
+    // Function to initialize counter animation when stats are in view
+    function initCounterAnimation() {
+      const statNumbers = document.querySelectorAll('.about-section .stat-number');
+      let hasAnimated = false;
+      
+      const observerOptions = {
+        threshold: window.innerWidth <= 768 ? 0.1 : 0.3,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasAnimated) {
+            hasAnimated = true;
+            
+            // Animate all numbers simultaneously
+            statNumbers.forEach(numberElement => {
+              const target = parseInt(numberElement.getAttribute('data-target'));
+              animateCounter(numberElement, target, 1200); // Fast animation (1200ms)
+            });
+            
+            // Stop observing after animation
+            statsObserver.disconnect();
+          }
+        });
+      }, observerOptions);
+      
+      // Observe the stats section container
+      const statsSection = document.querySelector('.about-section .stats-section');
+      if (statsSection) {
+        statsObserver.observe(statsSection);
+      }
+    }
+
+    // NEW: Scroll animation with Intersection Observer API
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.journey-text, .journey-image, .stat-item, .founder-text, .founder-image, .value-item');
+      
+      // Add the animate-on-scroll class to all target elements
+      animatedElements.forEach(element => {
+        element.classList.add('animate-on-scroll');
+      });
+      
+      // Initialize counter animation
+      initCounterAnimation();
+      
+      // Function to create observer with appropriate settings
+      function createObserver() {
+        // Adjust settings based on screen size
+        const isMobile = window.innerWidth <= 768;
+        
+        const observerOptions = {
+          threshold: isMobile ? 0.1 : 0.15, // Lower threshold on mobile
+          rootMargin: isMobile ? '0px 0px -10px 0px' : '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Add the 'animated' class when element is in view
+              entry.target.classList.add('animated');
+              
+              // Unobserve after animation to improve performance
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+        
+        return observer;
+      }
+      
+      // Create and use the observer
+      const observer = createObserver();
+      
+      // Observe all animated elements
+      animatedElements.forEach(element => {
+        observer.observe(element);
+      });
+      
+      // Update observer on window resize
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+          // Disconnect existing observer
+          observer.disconnect();
+          
+          // Create new observer with updated settings
+          const newObserver = createObserver();
+          
+          // Observe all elements again
+          animatedElements.forEach(element => {
+            // Only observe elements that haven't been animated yet
+            if (!element.classList.contains('animated')) {
+              newObserver.observe(element);
+            }
+          });
+        }, 250);
+      });
+      
+      // Parallax effect for header on scroll
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', function() {
+        if (header) {
+          const scrolled = window.pageYOffset;
+          const rate = scrolled * -0.5;
+          header.style.backgroundPosition = `center ${rate}px`;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
