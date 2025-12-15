@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyota Taisor Car Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #222222;
+            --secondary: #f97316;
+            --light: #f8f8f8;
+            --dark: #111111;
+            --gray: #4a4a4a;
+            --light-gray: #dddddd;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: var(--gray);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: var(--primary);
+            padding: 0.75rem 2rem;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            z-index: 10;
+            position: relative;
+            font-weight: 700;
+            text-decoration: none;        
+        }
+        
+        nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 20px;
+            z-index: 10;
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav .logo svg {
+            height: 26px;
+            width: 26px;
+            fill: #ff6b13;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 28px;
+            z-index: 100;
+            cursor: pointer;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        nav ul li {
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: #eee;
+            padding: 4px 0;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #ff6b13;
+        }
+        
+        .btn-rent {
+            background-color: #ff6b13;
+            color: white;
+            padding: 10px 20px;
+            font-weight: 700;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-rent:hover {
+            background-color: #e55a0f;
+        }
+        
+        /* Main content styles */
+        .main-content {
+            flex: 1;
+            background: linear-gradient(135deg, #f5f7fa, #e4e7eb);
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .contact-container {
+            display: flex;
+            max-width: 1300px;
+            width: 100%;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .contact-info {
+            flex: 1;
+            background: linear-gradient(to bottom right, #2c3e50, #1a2530);
+            color: white;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #2980b9, #d65e0a);
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .contact-info::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #d65e0a, #2980b9);
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo i {
+            font-size: 2.8rem;
+            color: #d65e0a;
+            margin-right: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #2980b9, #d65e0a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, #2980b9, #d65e0a);
+            border-radius: 2px;
+        }
+        
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+        }
+        
+        .contact-details {
+            margin-top: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            transition: transform 0.3s;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(8px);
+        }
+        
+        .contact-icon {
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.3rem;
+            color: #d65e0a;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text h3 {
+            font-size: 1.15rem;
+            margin-bottom: 5px;
+            color: #d65e0a;
+        }
+        
+        .contact-text p {
+            margin: 0;
+            font-size: 1.05rem;
+            color: #fff;
+        }
+        
+        .contact-form {
+            flex: 1.2;
+            padding: 50px 40px;
+            background: white;
+            position: relative;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        
+        .form-header h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .form-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, #2980b9, #d65e0a);
+            border-radius: 2px;
+        }
+        
+        .form-header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.05rem;
+        }
+        
+        .input-with-icon {
+            position: relative;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #d65e0a;
+            font-size: 1.1rem;
+        }
+        
+        input, textarea, select, .readonly-field {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            outline: none;
+            background: white;
+        }
+        
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d65e0a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2rem;
+        }
+        
+        .readonly-field {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            padding-left: 50px;
+            font-weight: 500;
+            cursor: not-allowed;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            border-color: #d65e0a;
+            box-shadow: 0 0 0 4px rgba(214, 94, 10, 0.15);
+        }
+        
+        textarea {
+            height: 150px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+        
+        .date-group {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .date-field {
+            flex: 1;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(to right, #2980b9, #d65e0a);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.4s;
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #d65e0a, #2980b9);
+            transition: all 0.5s;
+            z-index: -1;
+        }
+        
+        .btn-submit:hover::before {
+            left: 0;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(214, 94, 10, 0.35);
+        }
+        
+        .btn-submit i {
+            margin-right: 10px;
+        }
+        
+        .car-selected {
+            color: #d65e0a;
+            font-weight: 700;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(to right, rgba(214, 94, 10, 0.08), rgba(41, 128, 185, 0.08));
+            border-left: 4px solid #d65e0a;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 25px;
+        }
+        
+        .highlight-box p {
+            color: #2c3e50;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .highlight-box i {
+            margin-right: 10px;
+            color: #d65e0a;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 40px 30px;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .date-group {
+                flex-direction: column;
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                z-index: 99;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .contact-info, .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .contact-info h2 {
+                font-size: 1.8rem;
+            }
+            
+            .form-header h2 {
+                font-size: 1.7rem;
+            }
+            
+            header {
+                padding: 0.75rem 1rem;
+            }
+        }
+
+        /* Success message */
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transform: translateX(110%);
+            transition: transform 0.4s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .success-message.show {
+            transform: translateX(0);
+        }
+        
+        .success-message i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Loading Buffer Styles */
+        .loading-buffer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+        
+        .loading-buffer.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #ff6b13;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        .loading-buffer p {
+            font-size: 18px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Buffer -->
+    <div class="loading-buffer" id="loadingBuffer">
+        <div class="loader"></div>
+        <p>Loading Radhe Car Rental...</p>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav aria-label="Primary navigation">
+            <a href="#" class="logo" aria-label="Radhe Car Rental Home">
+                <span>Radhe Car Rental</span>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            
+            <ul role="list" aria-label="Main Navigation Menu">
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="../index2.html">ABOUT US</a></li>
+                <li><a href="">POLICY</a></li>
+                <li><a href="../index4.html">CONTACT US</a></li>
+                <li><a href="../index5.html"><button class="btn-rent" aria-label="Rent a vehicle now">RENT NOW</button></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="logo">
+                    <i class="fas fa-car"></i>
+                    <h1>Radhe Car Rental</h1>
+                </div>
+                <h2> Car Rentals</h2>
+                <p>Get behind the wheel of a reliable SUV or mid-size car without breaking the bank.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Our Location</h3>
+                            <p>Ahmedabad</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>radhecarrentals@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <p>+91 78743 74343</p>
+                        </div>
+                    </div> 
+                </div>
+            </div>            
+            <div class="contact-form">
+                <div class="form-header">
+                    <h2>Book Your Car</h2>
+                    <p>Fill out the form below to reserve your vehicle</p>
+                    <p style="color: red;">This is an enquiry page, not a confirmation page. Your enquiry will be sent via WhatsApp, and we will contact you soon to begin the confirmation process.</p>
+                </div>
+    
+                <form id="booking-form">
+                    <div class="form-grid">
+                        <!-- Pickup Location -->
+                        <div class="form-group">
+                            <label for="pickup-location">Pickup Location</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-map-marker-alt input-icon"></i>
+                                <div class="readonly-field" id="pickup-location">
+                                    Ahmedabad
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Car Selection -->
+                        <div class="form-group">
+                            <label for="car-selection">Selected Vehicle</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-car input-icon"></i>
+                                <div class="readonly-field" id="car-selection">
+                                    <span class="car-selected">Toyota Taisor</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Rental Dates -->
+                        <div class="form-group full-width">
+                            <label>Rental Period</label>
+                            <div class="date-group">
+                                <div class="date-field input-with-icon">
+                                    <i class="fas fa-calendar-day input-icon"></i>
+                                    <input type="date" id="start-date" required>
+                                </div>
+                                <div class="date-field input-with-icon">
+                                    <i class="fas fa-calendar-day input-icon"></i>
+                                    <input type="date" id="end-date" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- State Input (changed from dropdown) -->
+                        <div class="form-group">
+                            <label for="state">Which state are you traveling to?</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-map input-icon"></i>
+                                <input type="text" id="state" placeholder="Enter state name" required>
+                            </div>
+                        </div>
+                        
+                        <!-- City Input (changed from dropdown) -->
+                        <div class="form-group">
+                            <label for="city">Which city are you traveling to?</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-city input-icon"></i>
+                                <input type="text" id="city" placeholder="Enter city name" required>
+                            </div>
+                        </div>
+                        
+                        <!-- Name Fields -->
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="first-name" autocomplete="off" placeholder="Enter your first name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="last-name" autocomplete="off" placeholder="Enter your last name" required>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Fields -->
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="email" autocomplete="off" placeholder="Enter your email address" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-phone input-icon"></i>
+                                <input type="tel" id="phone" autocomplete="off" placeholder="Enter your phone number" required>
+                            </div>
+                        </div>
+                        
+                        <!-- Message Field -->
+                        <div class="form-group full-width">
+                            <label for="message">Special Requests</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-comment input-icon"></i>
+                                <textarea id="message" placeholder="Any special requirements or additional information..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> SEND QUERY
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+
+
+    <!-- Success message -->
+    <div id="success-message" class="success-message">
+        <i class="fas fa-check-circle"></i>
+        <span>Your query has been sent via WhatsApp!</span>
+    </div>
+
+    <script>
+        // Show loading buffer initially
+        const loadingBuffer = document.getElementById('loadingBuffer');
+        
+        // Hide loading buffer when page is fully loaded
+        window.addEventListener('load', function() {
+            // Add a small delay for a smoother transition
+            setTimeout(function() {
+                loadingBuffer.classList.add('hidden');
+                
+                // Remove from DOM after animation completes to improve performance
+                setTimeout(function() {
+                    loadingBuffer.style.display = 'none';
+                }, 500);
+            }, 500);
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const menu = document.querySelector('nav ul');
+            menu.classList.toggle('show');
+        });
+        
+        // Set min date for date pickers to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('start-date').min = today;
+        document.getElementById('end-date').min = today;
+        
+        // Update end date min when start date changes
+        document.getElementById('start-date').addEventListener('change', function() {
+            document.getElementById('end-date').min = this.value;
+        });
+        
+        // Form submission handling
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const pickupLocation = document.getElementById('pickup-location').textContent;
+            const selectedCar = document.querySelector('.car-selected').textContent;
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const state = document.getElementById('state').value;
+            const city = document.getElementById('city').value;
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Format WhatsApp message
+            let whatsappMessage = `*New Car Rental Query from Radhe Car Rental Website*%0A%0A`;
+            whatsappMessage += `*Selected Vehicle:* ${selectedCar}%0A`;
+            whatsappMessage += `*Pickup Location:* ${pickupLocation}%0A`;
+            whatsappMessage += `*Rental Period:* ${startDate} to ${endDate}%0A`;
+            whatsappMessage += `*State:* ${state}%0A`;
+            whatsappMessage += `*City:* ${city}%0A`;
+            whatsappMessage += `*Name:* ${firstName} ${lastName}%0A`;
+            whatsappMessage += `*Email:* ${email}%0A`;
+            whatsappMessage += `*Phone:* ${phone}%0A`;
+            whatsappMessage += `*Special Requests:* ${message}%0A%0A`;
+            whatsappMessage += `_This message was sent from the Radhe Car Rental booking form_`;
+            
+            // Create WhatsApp link
+            const whatsappLink = `https://wa.me/917874374343?text=${whatsappMessage}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(whatsappLink, '_blank');
+            
+            // Show success message
+            const successMessage = document.getElementById('success-message');
+            successMessage.classList.add('show');
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
