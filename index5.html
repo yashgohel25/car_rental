@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radhe Car Rental |  Car Rentals</title>
+    <title>Radhe Car Rental | Car Rentals</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* All your existing CSS remains the same */
@@ -472,75 +472,172 @@
             margin-top: auto;
         }
         
-        /* Responsive styles */
-        @media (max-width: 992px) {
-            .contact-container {
-                flex-direction: column;
-            }
-            
-            .contact-info, .contact-form {
-                padding: 40px 30px;
-            }
-            
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-            
-            .date-group {
-                flex-direction: column;
-                gap: 25px;
-            }
+        /* New Modern Vehicle Selector with Images */
+        .vehicle-selector-container {
+            position: relative;
         }
         
-        @media (max-width: 900px) {
-            .menu-toggle {
-                display: block;
-            }
-            
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-                z-index: 99;
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
+        .vehicle-selector-display {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            min-height: 56px;
         }
         
-        @media (max-width: 576px) {
-            .contact-info, .contact-form {
-                padding: 30px 20px;
-            }
-            
-            .logo h1 {
-                font-size: 1.8rem;
-            }
-            
-            .contact-info h2 {
-                font-size: 1.8rem;
-            }
-            
-            .form-header h2 {
-                font-size: 1.7rem;
-            }
-            
-            header {
-                padding: 0.75rem 1rem;
-            }
+        .vehicle-selector-display:hover {
+            border-color: #d65e0a;
         }
-
+        
+        .vehicle-selector-display.active {
+            border-color: #d65e0a;
+            box-shadow: 0 0 0 4px rgba(214, 94, 10, 0.15);
+        }
+        
+        .vehicle-selector-display .selected-vehicle {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .vehicle-selector-display .selected-vehicle i {
+            color: #d65e0a;
+            font-size: 1.3rem;
+        }
+        
+        .vehicle-selector-display .selected-vehicle img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .vehicle-selector-display .placeholder {
+            color: #7f8c8d;
+        }
+        
+        .vehicle-selector-display .arrow {
+            color: #7f8c8d;
+            transition: transform 0.3s;
+        }
+        
+        .vehicle-selector-display.active .arrow {
+            transform: rotate(180deg);
+            color: #d65e0a;
+        }
+        
+        .vehicle-selector-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            display: none;
+            max-height: 350px;
+            overflow-y: auto;
+            margin-top: -2px;
+        }
+        
+        .vehicle-selector-options.active {
+            display: block;
+        }
+        
+        .vehicle-option {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .vehicle-option:last-child {
+            border-bottom: none;
+        }
+        
+        .vehicle-option:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .vehicle-option.selected {
+            background-color: rgba(214, 94, 10, 0.08);
+            border-left: 4px solid #d65e0a;
+        }
+        
+        .vehicle-option-image {
+            width: 60px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #f5f7fa, #e4e7eb);
+        }
+        
+        .vehicle-option-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .vehicle-option:hover .vehicle-option-image img {
+            transform: scale(1.05);
+        }
+        
+        .vehicle-option-details {
+            flex: 1;
+        }
+        
+        .vehicle-option-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+        
+        .vehicle-option-type {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .vehicle-option-price {
+            font-size: 0.95rem;
+            color: #d65e0a;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        
+        .vehicle-option-check {
+            color: #d65e0a;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        
+        .vehicle-option.selected .vehicle-option-check {
+            opacity: 1;
+        }
+        
+        .vehicle-selector-hidden {
+            display: none;
+        }
+        
         /* Success message */
         .success-message {
             position: fixed;
@@ -631,6 +728,103 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 40px 30px;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .date-group {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .vehicle-option {
+                padding: 14px 16px;
+            }
+            
+            .vehicle-option-image {
+                width: 55px;
+                height: 38px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                z-index: 99;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .contact-info, .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .contact-info h2 {
+                font-size: 1.8rem;
+            }
+            
+            .form-header h2 {
+                font-size: 1.7rem;
+            }
+            
+            header {
+                padding: 0.75rem 1rem;
+            }
+            
+            .vehicle-selector-display {
+                padding: 14px 16px 14px 45px;
+                font-size: 1rem;
+            }
+            
+            .vehicle-option {
+                padding: 12px 14px;
+            }
+            
+            .vehicle-option-image {
+                width: 50px;
+                height: 35px;
+            }
+            
+            .vehicle-selector-display .selected-vehicle img {
+                width: 35px;
+                height: 35px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -665,7 +859,7 @@
                     <i class="fas fa-car"></i>
                     <h1>Radhe Car Rental</h1>
                 </div>
-                <h2> Car Rentals</h2>
+                <h2>Car Rentals</h2>
                 <p>Get behind the wheel of a reliable SUV or mid-size car without breaking the bank.</p>
                 
                 <div class="contact-details">
@@ -721,23 +915,151 @@
                             </div>
                         </div>
                         
-                        <!-- Car Selection - CHANGED TO DROPDOWN -->
+                        <!-- Modern Vehicle Selector with Images -->
                         <div class="form-group">
                             <label for="car-selection">Select Vehicle</label>
                             <div class="input-with-icon">
                                 <i class="fas fa-car input-icon"></i>
-                                <select id="car-selection" required>
-                                    <option value="" disabled selected>Select a car</option>
-                                    <option value="Hyundai Creta">Hyundai Creta</option>
-                                    <option value="Hyundai Venue">Hyundai Venue</option>
-                                    <option value="Swift Dzire Black">Swift Dzire Black</option>
-                                    <option value="Swift Dzire White">Swift Dzire White</option>
-                                    <option value="Suzuki Ertiga">Suzuki Ertiga</option>
-                                    <option value="Toyota Taisor">Toyota Taisor</option>
-                                    <option value="Toyota Taisor">Toyota Innova</option>
-                                    <option value="Toyota Taisor">Maruti Suzuki Fronx</option>
-
-                                </select>
+                                <div class="vehicle-selector-container">
+                                    <!-- Hidden select for form submission -->
+                                    <select id="car-selection" class="vehicle-selector-hidden" required>
+                                        <option value="" disabled selected>Select a car</option>
+                                        <option value="Hyundai Creta">Hyundai Creta</option>
+                                        <option value="Hyundai Venue">Hyundai Venue</option>
+                                        <option value="Swift Dzire Black">Swift Dzire Black</option>
+                                        <option value="Swift Dzire White">Swift Dzire White</option>
+                                        <option value="Suzuki Ertiga">Suzuki Ertiga</option>
+                                        <option value="Toyota Taisor">Toyota Taisor</option>
+                                        <option value="Toyota Innova">Toyota Innova</option>
+                                        <option value="Maruti Suzuki Fronx">Maruti Suzuki Fronx</option>
+                                    </select>
+                                    
+                                    <!-- Modern selector display -->
+                                    <div class="vehicle-selector-display" id="vehicle-display">
+                                        <div class="selected-vehicle">
+                                            <i class="fas fa-car"></i>
+                                            <span class="placeholder">Select a car</span>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Modern selector options with images -->
+                                    <div class="vehicle-selector-options" id="vehicle-options">
+                                        <div class="vehicle-option" data-value="Hyundai Creta">
+                                            <div class="vehicle-option-image">
+                                                <img src="https://ik.imagekit.io/newcarimage/myimage/creata1.jpg" alt="Hyundai Creta">
+                                            </div>
+                                            <div class="vehicle-option-details">
+                                                <div class="vehicle-option-name">Hyundai Creta</div>
+                                                <div class="vehicle-option-type">SUV | 5 Seater</div>
+                                                <div class="vehicle-option-price">₹5000/day</div>
+                                            </div>
+                                            <div class="vehicle-option-check">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="vehicle-option" data-value="Hyundai Venue">
+                                            <div class="vehicle-option-image">
+                                                <img src="https://ik.imagekit.io/newcarimage/myimage/venu1.jpg" alt="Hyundai Venue">
+                                            </div>
+                                            <div class="vehicle-option-details">
+                                                <div class="vehicle-option-name">Hyundai Venue</div>
+                                                <div class="vehicle-option-type">Compact SUV | 5 Seater</div>
+                                                <div class="vehicle-option-price">₹3500/day</div>
+                                            </div>
+                                            <div class="vehicle-option-check">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="vehicle-option" data-value="Swift Dzire Black">
+                                            <div class="vehicle-option-image">
+                                                <img src="https://ik.imagekit.io/newcarimage/myimage/swift(black)1.jpeg" alt="Swift Dzire Black">
+                                            </div>
+                                            <div class="vehicle-option-details">
+                                                <div class="vehicle-option-name">Swift Dzire Black</div>
+                                                <div class="vehicle-option-type">Sedan | 5 Seater</div>
+                                                <div class="vehicle-option-price">₹2500/day</div>
+                                            </div>
+                                            <div class="vehicle-option-check">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="vehicle-option" data-value="Swift Dzire White">
+                                            <div class="vehicle-option-image">
+                                                <img src="https://ik.imagekit.io/newcarimage/myimage/swift(white)1.jpg" alt="Swift Dzire White">
+                                            </div>
+                                            <div class="vehicle-option-details">
+                                                <div class="vehicle-option-name">Swift Dzire White</div>
+                                                <div class="vehicle-option-type">Sedan | 5 Seater</div>
+                                                <div class="vehicle-option-price">₹2500/day</div>
+                                            </div>
+                                            <div class="vehicle-option-check">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="vehicle-option" data-value="Suzuki Ertiga">
+                                            <div class="vehicle-option-image">
+                                                <img src="https://ik.imagekit.io/newcarimage/myimage/Ertiga%201.jpg" alt="Suzuki Ertiga">
+                                            </div>
+                                            <div class="vehicle-option-details">
+                                                <div class="vehicle-option-name">Suzuki Ertiga</div>
+                                                <div class="vehicle-option-type">MPV | 7 Seater</div>
+                                                <div class="vehicle-option-price">₹3000/day</div>
+                                            </div>
+                                            <div class="vehicle-option-check">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="vehicle-option" data-value="Toyota Taisor">
+                                            <div class="vehicle-option-image">
+                                                <img src="https://ik.imagekit.io/newcarimage/myimage/Taison%201.jpg" alt="Toyota Taisor">
+                                            </div>
+                                            <div class="vehicle-option-details">
+                                                <div class="vehicle-option-name">Toyota Taisor</div>
+                                                <div class="vehicle-option-type">Compact SUV | 5 Seater</div>
+                                                <div class="vehicle-option-price">₹3000/day</div>
+                                            </div>
+                                            <div class="vehicle-option-check">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="vehicle-option" data-value="Toyota Innova">
+                                            <div class="vehicle-option-image">
+                                                <img src="https://ik.imagekit.io/newcarimage/myimage/Toyota%20Innova%20crista1.jpg" alt="Toyota Innova">
+                                            </div>
+                                            <div class="vehicle-option-details">
+                                                <div class="vehicle-option-name">Toyota Innova</div>
+                                                <div class="vehicle-option-type">MPV | 7 Seater</div>
+                                                <div class="vehicle-option-price">₹6,000/day</div>
+                                            </div>
+                                            <div class="vehicle-option-check">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="vehicle-option" data-value="Maruti Suzuki Fronx">
+                                            <div class="vehicle-option-image">
+                                                <img src="https://ik.imagekit.io/newcarimage/myimage/Fronx1.jpg" alt="Maruti Suzuki Fronx">
+                                            </div>
+                                            <div class="vehicle-option-details">
+                                                <div class="vehicle-option-name">Maruti Suzuki Fronx</div>
+                                                <div class="vehicle-option-type">Compact SUV | 5 Seater</div>
+                                                <div class="vehicle-option-price">₹2,500/day</div>
+                                            </div>
+                                            <div class="vehicle-option-check">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
@@ -756,7 +1078,7 @@
                             </div>
                         </div>
                         
-                        <!-- State Selection - CHANGED TO TEXT INPUT -->
+                        <!-- State Selection -->
                         <div class="form-group">
                             <label for="state">Which state are you going to?</label>
                             <div class="input-with-icon">
@@ -775,7 +1097,7 @@
                             </div>
                         </div>
                         
-                        <!-- City Selection - CHANGED TO TEXT INPUT -->
+                        <!-- City Selection -->
                         <div class="form-group">
                             <label for="city">Which city are you going to?</label>
                             <div class="input-with-icon">
@@ -871,30 +1193,30 @@
     </div>
 
     <script>
-
-         // Show loading buffer initially
-    const loadingBuffer = document.getElementById('loadingBuffer');
-    
-    // Hide loading buffer when page is fully loaded
-    window.addEventListener('load', function() {
-      // Add a small delay for a smoother transition
-      setTimeout(function() {
-        loadingBuffer.classList.add('hidden');
+        // Show loading buffer initially
+        const loadingBuffer = document.getElementById('loadingBuffer');
         
-        // Remove from DOM after animation completes to improve performance
-        setTimeout(function() {
-          loadingBuffer.style.display = 'none';
-        }, 500);
-      }, 500);
-    });
-    
-    // Also hide loading buffer if there's an error
-    window.addEventListener('error', function() {
-      loadingBuffer.classList.add('hidden');
-      setTimeout(function() {
-        loadingBuffer.style.display = 'none';
-      }, 500);
-    });
+        // Hide loading buffer when page is fully loaded
+        window.addEventListener('load', function() {
+            // Add a small delay for a smoother transition
+            setTimeout(function() {
+                loadingBuffer.classList.add('hidden');
+                
+                // Remove from DOM after animation completes to improve performance
+                setTimeout(function() {
+                    loadingBuffer.style.display = 'none';
+                }, 500);
+            }, 500);
+        });
+        
+        // Also hide loading buffer if there's an error
+        window.addEventListener('error', function() {
+            loadingBuffer.classList.add('hidden');
+            setTimeout(function() {
+                loadingBuffer.style.display = 'none';
+            }, 500);
+        });
+        
         // Mobile menu toggle
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             const menu = document.querySelector('nav ul');
@@ -911,13 +1233,71 @@
             document.getElementById('end-date').min = this.value;
         });
         
+        // Modern Vehicle Selector Functionality
+        const vehicleDisplay = document.getElementById('vehicle-display');
+        const vehicleOptions = document.getElementById('vehicle-options');
+        const hiddenSelect = document.getElementById('car-selection');
+        const vehicleOptionsList = document.querySelectorAll('.vehicle-option');
+        
+        // Toggle vehicle selector
+        vehicleDisplay.addEventListener('click', function(e) {
+            e.stopPropagation();
+            vehicleDisplay.classList.toggle('active');
+            vehicleOptions.classList.toggle('active');
+        });
+        
+        // Handle vehicle selection
+        vehicleOptionsList.forEach(option => {
+            option.addEventListener('click', function() {
+                const value = this.getAttribute('data-value');
+                const name = this.querySelector('.vehicle-option-name').textContent;
+                const type = this.querySelector('.vehicle-option-type').textContent;
+                const imageSrc = this.querySelector('img').src;
+                
+                // Update hidden select
+                hiddenSelect.value = value;
+                
+                // Update display with image
+                const selectedVehicleDisplay = vehicleDisplay.querySelector('.selected-vehicle');
+                selectedVehicleDisplay.innerHTML = `
+                    <img src="${imageSrc}" alt="${name}">
+                    <span>${name}</span>
+                `;
+                
+                // Update selected state
+                vehicleOptionsList.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                // Close dropdown
+                vehicleDisplay.classList.remove('active');
+                vehicleOptions.classList.remove('active');
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!vehicleDisplay.contains(e.target) && !vehicleOptions.contains(e.target)) {
+                vehicleDisplay.classList.remove('active');
+                vehicleOptions.classList.remove('active');
+            }
+        });
+        
         // Form submission handling
         document.getElementById('booking-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Validate vehicle selection
+            if (!hiddenSelect.value) {
+                alert('Please select a vehicle');
+                vehicleDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                vehicleDisplay.classList.add('active');
+                vehicleOptions.classList.add('active');
+                return;
+            }
+            
             // Get form values
             const pickupLocation = document.getElementById('pickup-location').textContent;
-            const selectedCar = document.getElementById('car-selection').value;
+            const selectedCar = hiddenSelect.value;
             const startDate = document.getElementById('start-date').value;
             const endDate = document.getElementById('end-date').value;
             const state = document.getElementById('state').value;
@@ -956,11 +1336,26 @@
                 successMessage.classList.remove('show');
             }, 5000);
             
-            // Reset form
+            // Reset form (except vehicle selector)
             this.reset();
+            document.getElementById('first-name').value = '';
+            document.getElementById('last-name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('state').value = '';
+            document.getElementById('city').value = '';
+            document.getElementById('message').value = '';
+            document.getElementById('start-date').value = '';
+            document.getElementById('end-date').value = '';
             
-            // Reset car selection
-            document.getElementById('car-selection').selectedIndex = 0;
+            // Reset vehicle selector
+            hiddenSelect.value = '';
+            const selectedVehicleDisplay = vehicleDisplay.querySelector('.selected-vehicle');
+            selectedVehicleDisplay.innerHTML = `
+                <i class="fas fa-car"></i>
+                <span class="placeholder">Select a car</span>
+            `;
+            vehicleOptionsList.forEach(opt => opt.classList.remove('selected'));
         });
     </script>
 </body>
