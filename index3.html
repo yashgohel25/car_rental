@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radhe Car Rental - Terms and Conditions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary: #222222;
+      --secondary: #f97316;
+      --light: #f8f8f8;
+      --dark: #111111;
+      --gray: #4a4a4a;
+      --light-gray: #dddddd;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: var(--gray);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Header styles */
+    header {
+      background-color: var(--primary);
+      padding: 0.75rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    /* Updated Navbar Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+      z-index: 10;
+      position: relative;
+      font-weight: 700;
+      text-decoration: none;        
+    }
+    
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      z-index: 10;
+      color: white;
+      text-decoration: none;
+    }
+    
+    nav .logo svg {
+      height: 26px;
+      width: 26px;
+      fill: #ff6b13;
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 28px;
+      z-index: 100;
+      cursor: pointer;
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    nav ul li {
+      position: relative;
+    }
+    
+    nav ul li a {
+      color: #eee;
+      padding: 4px 0;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ff6b13;
+    }
+    
+    .btn-rent {
+      background-color: #ff6b13;
+      color: white;
+      padding: 10px 20px;
+      font-weight: 700;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      z-index: 10;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-rent:hover {
+      background-color: #e55a0f;
+    }
+    
+    /* --- NEW ANIMATION STYLES --- */
+    /* Fade-in and zoom animation */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Specific animations for different elements */
+    .policy-header.animate-on-scroll {
+      transform: translateY(40px) scale(0.95);
+    }
+
+    .term-item.animate-on-scroll {
+      transform: translateY(30px) scale(0.9);
+    }
+
+    .note-box.animate-on-scroll {
+      transform: translateY(30px) scale(0.95);
+    }
+
+    /* Stagger animation for term items */
+    .term-item.animate-on-scroll:nth-child(1) { transition-delay: 0.05s; }
+    .term-item.animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+    .term-item.animate-on-scroll:nth-child(3) { transition-delay: 0.15s; }
+    .term-item.animate-on-scroll:nth-child(4) { transition-delay: 0.2s; }
+    .term-item.animate-on-scroll:nth-child(5) { transition-delay: 0.25s; }
+    .term-item.animate-on-scroll:nth-child(6) { transition-delay: 0.3s; }
+    .term-item.animate-on-scroll:nth-child(7) { transition-delay: 0.35s; }
+    .term-item.animate-on-scroll:nth-child(8) { transition-delay: 0.4s; }
+    .term-item.animate-on-scroll:nth-child(9) { transition-delay: 0.45s; }
+    .term-item.animate-on-scroll:nth-child(10) { transition-delay: 0.5s; }
+    .term-item.animate-on-scroll:nth-child(11) { transition-delay: 0.55s; }
+    .term-item.animate-on-scroll:nth-child(12) { transition-delay: 0.6s; }
+    .term-item.animate-on-scroll:nth-child(13) { transition-delay: 0.65s; }
+    .term-item.animate-on-scroll:nth-child(14) { transition-delay: 0.7s; }
+    .term-item.animate-on-scroll:nth-child(15) { transition-delay: 0.75s; }
+    .term-item.animate-on-scroll:nth-child(16) { transition-delay: 0.8s; }
+    .term-item.animate-on-scroll:nth-child(17) { transition-delay: 0.85s; }
+    .term-item.animate-on-scroll:nth-child(18) { transition-delay: 0.9s; }
+    .term-item.animate-on-scroll:nth-child(19) { transition-delay: 0.95s; }
+    .term-item.animate-on-scroll:nth-child(20) { transition-delay: 1s; }
+    
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        z-index: 99;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+    }
+    
+    /* Main content styles - Updated for responsiveness */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--gray);
+      background-color: #ffffff;
+      flex: 1;
+      width: 100%;
+    }
+
+    .policy-header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+      color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .policy-header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+
+    .policy-header p {
+      margin: 10px 0 0;
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+
+    .policy-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .terms-list {
+      list-style-type: none;
+      padding: 0;
+      counter-reset: terms-counter;
+    }
+
+    .term-item {
+      margin-bottom: 25px;
+      padding: 20px 20px 20px 80px;
+      position: relative;
+      border-left: 4px solid var(--secondary);
+      background-color: #f8f9fa;
+      border-radius: 0 8px 8px 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .term-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .term-item:before {
+      counter-increment: terms-counter;
+      content: counter(terms-counter);
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--secondary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .term-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .term-item p {
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .signature-section {
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 1px solid var(--light-gray);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .signature-box {
+      flex: 1 1 300px;
+      min-width: 250px;
+    }
+
+    .signature-line {
+      border-top: 1px solid var(--gray);
+      padding-top: 40px;
+      margin-top: 5px;
+      text-align: center;
+      color: var(--gray);
+    }
+
+    .note-box {
+      background-color: #fff8f0;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 30px 0;
+      border-left: 4px solid var(--secondary);
+    }
+    
+    .note-box p {
+      color: var(--dark);
+      margin: 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        padding: 0.75rem 1rem;
+      }
+      
+      .policy-header {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+      }
+      
+      .policy-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .policy-header p {
+        font-size: 1rem;
+      }
+      
+      .policy-content {
+        padding: 20px 15px;
+      }
+      
+      .term-item {
+        padding: 15px 15px 15px 70px;
+      }
+      
+      .term-item:before {
+        left: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+      
+      .term-title {
+        font-size: 1.1rem;
+      }
+      
+      .signature-box {
+        width: 100%;
+        flex: 1 1 100%;
+      }
+      
+      /* Mobile-specific animation adjustments */
+      .policy-header.animate-on-scroll {
+        transform: translateY(30px) scale(0.95);
+      }
+
+      .term-item.animate-on-scroll {
+        transform: translateY(20px) scale(0.95);
+      }
+
+      .note-box.animate-on-scroll {
+        transform: translateY(20px) scale(0.95);
+      }
+      
+      /* Reduce transition delays on mobile for faster sequencing */
+      .term-item.animate-on-scroll:nth-child(1) { transition-delay: 0.03s; }
+      .term-item.animate-on-scroll:nth-child(2) { transition-delay: 0.06s; }
+      .term-item.animate-on-scroll:nth-child(3) { transition-delay: 0.09s; }
+      .term-item.animate-on-scroll:nth-child(4) { transition-delay: 0.12s; }
+      .term-item.animate-on-scroll:nth-child(5) { transition-delay: 0.15s; }
+      .term-item.animate-on-scroll:nth-child(6) { transition-delay: 0.18s; }
+      .term-item.animate-on-scroll:nth-child(7) { transition-delay: 0.21s; }
+      .term-item.animate-on-scroll:nth-child(8) { transition-delay: 0.24s; }
+      .term-item.animate-on-scroll:nth-child(9) { transition-delay: 0.27s; }
+      .term-item.animate-on-scroll:nth-child(10) { transition-delay: 0.3s; }
+      .term-item.animate-on-scroll:nth-child(11) { transition-delay: 0.33s; }
+      .term-item.animate-on-scroll:nth-child(12) { transition-delay: 0.36s; }
+      .term-item.animate-on-scroll:nth-child(13) { transition-delay: 0.39s; }
+      .term-item.animate-on-scroll:nth-child(14) { transition-delay: 0.42s; }
+      .term-item.animate-on-scroll:nth-child(15) { transition-delay: 0.45s; }
+      .term-item.animate-on-scroll:nth-child(16) { transition-delay: 0.48s; }
+      .term-item.animate-on-scroll:nth-child(17) { transition-delay: 0.51s; }
+      .term-item.animate-on-scroll:nth-child(18) { transition-delay: 0.54s; }
+      .term-item.animate-on-scroll:nth-child(19) { transition-delay: 0.57s; }
+      .term-item.animate-on-scroll:nth-child(20) { transition-delay: 0.6s; }
+    }
+    
+    @media (max-width: 480px) {
+      .policy-header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .term-item {
+        padding: 15px 15px 15px 60px;
+      }
+      
+      .term-item:before {
+        left: 10px;
+        width: 30px;
+        height: 30px;
+      }
+      
+      .term-title {
+        font-size: 1rem;
+      }
+    }
+    
+    /* Animation for reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-on-scroll {
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+        /* Loading Buffer Styles */
+    .loading-buffer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+    
+    .loading-buffer.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #ff6b13;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    .loading-buffer p {
+      font-size: 18px;
+      color: #333;
+      font-weight: 600;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+  </style>
+</head>
+<body>
+    <!-- Loading Buffer -->
+  <div class="loading-buffer" id="loadingBuffer">
+    <div class="loader"></div>
+    <p>Loading Radhe Car Rental...</p>
+  </div>
+  <!-- Header -->
+  <header>
+    <nav aria-label="Primary navigation">
+      <a href="#" class="logo" aria-label="Radhe Car Rental Home">
+        <span>Radhe Car Rental</span>
+      </a>
+      
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      
+      <ul role="list" aria-label="Main Navigation Menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index2.html">About Us</a></li>
+        <li><a href="index3.html" class="active" aria-current="page">Policy</a></li>
+        <li><a href="index4.html">Contact Us</a></li>
+        <li><a href="index5.html"><button class="btn-rent" aria-label="Rent a vehicle now">Rent Now</button></a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="policy-header animate-on-scroll">
+      <h1>Terms and Conditions</h1>
+      <p>Please read the following terms carefully before renting a vehicle</p>
+    </div>
+
+    <div class="policy-content">
+      <ol class="terms-list">
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Damages</div>
+          <p>If any damage occurs, the customer will bear all costs of repair. Any damages detected within 15 days after the booking period will be the customer's liability.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Flood Damage</div>
+          <p>Please be careful during the monsoon season and avoid driving through excess water. The customer will be responsible for any flood-related damages and will be required to compensate for repairs.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Fuel</div>
+          <p>Please check the fuel level before starting your trip and ensure you maintain at least the same amount of fuel that was provided at the start of your rental. Any extra fuel filled beyond the initial amount will not be compensated by the company.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Drop Point</div>
+          <p>The vehicle must be returned to the agreed-upon location at the end of the rental period.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Documents</div>
+          <p>Aadhar Card, Light Bill, Passport, Driving License, two blank cheques, and the mobile number of the person taking the vehicle must be provided.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Illegal Activity</div>
+          <p>No illegal activities including theft, transport of intoxicants, liquor consumption, or sale are permitted in the vehicle. The customer bears full responsibility for any illegal activities conducted using the vehicle.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Extension Policy</div>
+          <p>The vehicle must be returned on the agreed date. For extensions, customers must inform the company at least 24 hours in advance via WhatsApp.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Authorized Person</div>
+          <p>The vehicle may only be driven by the authorized person whose license has been provided to the company.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Condition</div>
+          <p>The vehicle must be returned in the same condition as documented during the initial inspection and videography.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Charges</div>
+          <p>Payment is to be made according to the pre-agreed kilometers. Any additional kilometers driven will be charged extra.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Legality</div>
+          <p>Car rentals fall under the Motor Vehicle Act Section 43 & 51.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Legal Jurisdiction</div>
+          <p>Any legal proceedings will be conducted in Ahmedabad. Radhe Car Rental.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Luggage</div>
+          <p>Please check all luggage before leaving the vehicle. The company is not responsible for any lost or stolen items.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Facilities</div>
+          <p>TV & DVD and other entertainment facilities may not work during the tour.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Disputes</div>
+          <p>Customers cannot dispute these terms and conditions once the rental agreement is signed.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Mileage & Time</div>
+          <p>Please verify the starting and closing kilometers and time before and after your rental period.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Extended Usage</div>
+          <p>We charge for a second day after 12:00 PM.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Prohibited Items</div>
+          <p>Alcohol and smoking materials are prohibited in the vehicle.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Advance Deposit</div>
+          <p>Advance deposits are non-refundable under any circumstances.</p>
+        </li>
+        
+        <li class="term-item animate-on-scroll">
+          <div class="term-title">Air Conditioning</div>
+          <p>The air conditioning system will not work when the vehicle is parked with the engine off.</p>
+        </li>
+      </ol>
+
+      <div class="note-box animate-on-scroll">
+        <p><strong>Note:</strong> These terms and conditions are subject to change without prior notice. Please ensure you have read and understood all points before booking.</p>
+      </div>
+    </div>
+  </main>
+  
+
+  
+  <script>
+      // Show loading buffer initially
+    const loadingBuffer = document.getElementById('loadingBuffer');
+    
+    // Hide loading buffer when page is fully loaded
+    window.addEventListener('load', function() {
+      // Add a small delay for a smoother transition
+      setTimeout(function() {
+        loadingBuffer.classList.add('hidden');
+        
+        // Remove from DOM after animation completes to improve performance
+        setTimeout(function() {
+          loadingBuffer.style.display = 'none';
+        }, 500);
+      }, 500);
+    });
+    
+    // Also hide loading buffer if there's an error
+    window.addEventListener('error', function() {
+      loadingBuffer.classList.add('hidden');
+      setTimeout(function() {
+        loadingBuffer.style.display = 'none';
+      }, 500);
+    });
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      const menu = document.querySelector('nav ul');
+      menu.classList.toggle('show');
+    });
+
+    // NEW: Scroll animation with Intersection Observer API
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.policy-header, .term-item, .note-box');
+      
+      // Add the animate-on-scroll class to all target elements
+      animatedElements.forEach(element => {
+        element.classList.add('animate-on-scroll');
+      });
+      
+      // Function to create observer with appropriate settings
+      function createObserver() {
+        // Adjust settings based on screen size
+        const isMobile = window.innerWidth <= 768;
+        
+        const observerOptions = {
+          threshold: isMobile ? 0.1 : 0.15, // Lower threshold on mobile
+          rootMargin: isMobile ? '0px 0px -10px 0px' : '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Add the 'animated' class when element is in view
+              entry.target.classList.add('animated');
+              
+              // Unobserve after animation to improve performance
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+        
+        return observer;
+      }
+      
+      // Create and use the observer
+      const observer = createObserver();
+      
+      // Observe all animated elements
+      animatedElements.forEach(element => {
+        observer.observe(element);
+      });
+      
+      // Update observer on window resize
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+          // Disconnect existing observer
+          observer.disconnect();
+          
+          // Create new observer with updated settings
+          const newObserver = createObserver();
+          
+          // Observe all elements again
+          animatedElements.forEach(element => {
+            // Only observe elements that haven't been animated yet
+            if (!element.classList.contains('animated')) {
+              newObserver.observe(element);
+            }
+          });
+        }, 250);
+      });
+    });
+  </script>
+</body>
+</html>
